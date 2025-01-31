@@ -1,9 +1,9 @@
 import React from 'react';
-import CustomNavbar from './Navbar';
-import Home from './Home';
-import Services from './Services';
-import Contact from './Contact';
-import Footer from './Footer';
+import CustomNavbar from './components/Navbar';
+import Home from './components/Home';
+import Services from './components/Services';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 
