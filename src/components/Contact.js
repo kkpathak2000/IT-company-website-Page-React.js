@@ -17,7 +17,7 @@ const Contact = () => {
       </p>
 
       <div className="contact-image-container">
-        <img src={contactImage} alt="Contact Us image" className="contact-image"/>
+        <img src={contactImage} alt="Contact Us" className="contact-image"/>
       </div>
 
       <div className="contact-container">
@@ -29,7 +29,7 @@ const Contact = () => {
 
         <div className="separator"></div>
 
-        <Form className="contact-form">
+        <Form id="form" className="contact-form">
           <FormGroup>
             <Label for="name">Name</Label>
             <Input type="text" placeholder="Your Name" />

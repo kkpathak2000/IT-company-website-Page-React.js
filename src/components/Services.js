@@ -26,6 +26,11 @@ const Services = () => {
             </Card>
           ))}
       </div>
+      <div className="services-footer">
+        <p>lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 
+        <br />
+        <p>Ready to take your business to the next level? <a href="#form">Contact us today!</a></p>
+      </div>
     </section>
   );
 };
