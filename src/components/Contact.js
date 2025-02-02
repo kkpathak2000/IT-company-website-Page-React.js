@@ -9,9 +9,7 @@ const Contact = () => {
 
       <h2 className="contact-title">Reach out to us</h2>
       <p className="contact-subtext">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Have questions or need assistance? Our team is here to help! Whether you're looking for a comprehensive school management solution with VIDYA, a stunning academic web presence, or expert services to support your business growth, we've got you covered. Reach out to us today to learn more about our offerings, request a demo, or get personalized guidance. Let’s work together to streamline your operations and enhance your digital presence!
       </p>
 
       <div className="contact-image-container">
@@ -39,7 +37,7 @@ const Contact = () => {
               <Label for="message">Message</Label>
               <Input type="textarea" placeholder="Your Message" />
             </FormGroup>
-            <Button dark color='dark'>Send Message</Button>
+            <Button light color='light' size="sm" >Send Message</Button>
           </Form>
         </div>
       </div>

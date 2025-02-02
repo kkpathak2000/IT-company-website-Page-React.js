@@ -12,8 +12,7 @@ const Home = () => {
       </div>
 
       <p className="home-description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      VIDYA - School Management Software is a comprehensive solution designed to streamline school operations with 15+ intelligent modules, covering everything from student enrollment and attendance tracking to fee management and academic reporting. It also features an integrated Auto SMS Responder, ensuring seamless communication between schools, parents, and staff by sending instant updates, reminders, and notifications.
       </p>
 
       <hr className="home-hr" />

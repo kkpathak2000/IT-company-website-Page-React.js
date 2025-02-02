@@ -1,12 +1,14 @@
+//navbar for landing page
 import React from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import logo from '../assets/logo.png';
 
 const CustomNavbar = () => {
   return (
     <Navbar dark expand="md" className="custom-navbar">
       <NavbarBrand className="navbar-class">
        <div className='navbar-logo-div'>
-        <img src="https://cdn.vidyaone.com/Company/Website/logo.png" alt="Company Logo" className="navbar-logo" />
+        <img src={logo} alt="Company Logo" className="navbar-logo" />
        </div>
       </NavbarBrand>
       <Nav className= "nav-class" navbar>
