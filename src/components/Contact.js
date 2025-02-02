@@ -17,7 +17,7 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> vidyaone@gmail.com</p>
+          <p><strong>Email:</strong> <a href="mailto:vidyaone@gmail.com">vidyaone@gmail.com</a></p>
             <p><strong>Address:</strong> ABC Street, Lucknow</p>
             <p><strong>Phone:</strong> +91-1234567890</p>
           </div>

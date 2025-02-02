@@ -204,6 +204,7 @@ body {
     background-color: #282A36;
     padding: 1rem;
     gap: 20px;
+    color: #ffffff;
   }
   
   .footer p, .footer nav {
@@ -214,7 +215,7 @@ body {
 }
 
 .footer a {
-  color: #8BE9FD;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -255,12 +256,11 @@ body {
 }
 
 .service-card {
-  background-color: #282A36;
+  background-color: #333;
   color: white;
   width: 300px;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease, height 0.3s ease;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -282,10 +282,10 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 
-.service-card:hover .service-image {
+.card-image-container:hover .service-image {
   transform: scale(1.1);
 }
 
