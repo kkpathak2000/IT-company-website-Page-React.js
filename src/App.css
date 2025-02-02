@@ -18,7 +18,7 @@ body {
     position:fixed !important;
     width: 100%;
     z-index: 1000;
-    border-radius: 5px;
+    border-radius: 2px;
     top: 0;
   }
   
@@ -65,7 +65,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 80%; 
+  width: 100%; 
   height: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.98), transparent);
   z-index: 1;
@@ -74,7 +74,7 @@ body {
 .home-text-overlay {
   position: absolute;
   top: 50%;
-  left: 22%;
+  left: 26%;
   transform: translate(-50%, -50%);
   color: white;
   font-size:larger; 
@@ -105,80 +105,86 @@ body {
 
   /* CSS for CONTACT PAGE */
 
-  .contact-section {
-    text-align: center;
-    padding: 3rem 0;
-    color: white;
-  }
-  
-  .contact-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .contact-subtext {
-    font-size: 1rem;
-    max-width: 600px;
-    margin: 0 auto 20px;
-    opacity: 0.8;
-    margin-top: 2%;
-  }
-  
-  .contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
-    padding-top: 20px;
-  }
-  
-  .contact-info {
-    text-align: left;
-    flex: 1;
-  }
-  
-  .contact-info p {
-    margin: 10px 0;
-  }
-  
-  .separator {
-    width: 2px;
-    height: 150px;
-    background-color: #fff;
-    margin: 0 30px;
-  }
-  
-  .contact-form {
-    flex: 1;
-    text-align: left;
-  }
-  
-  .contact-form input, .contact-form textarea {
-    border: 1px solid #555;
-    color: #000;
-    background-color: #fff;
-  }
-  
-  .contact-form input:focus, .contact-form textarea:focus {
-    border-color: #00bcd4;
-    outline: none;
-  }
+.contact-section {
+  text-align: center;
+  padding: 3rem 0;
+  color: white;
+}
+
+.contact-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contact-subtext {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  opacity: 0.8;
+  margin-top: 2%;
+}
 
 .contact-image-container {
+  position: relative;
   width: 100%;
-  margin: 20px 0;
-  margin-top: 6%;
+  height: 400px; 
 }
 
 .contact-image {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
   object-fit: cover;
   opacity: 0.7;
-  border-radius: 0px;
+}
+
+.contact-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background: rgba(0, 0, 0, 0.5); 
+}
+
+.contact-info {
+  text-align: left;
+  flex: 1;
+  background: rgba(0, 0, 0, 0.6); 
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.separator {
+  width: 2px;
+  height: 150px;
+  background-color: #fff;
+  margin: 0 30px;
+}
+
+.contact-form {
+  flex: 1;
+  text-align: left;
+  background: rgba(0, 0, 0, 0.6); 
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #555;
+  color: #000;
+  background-color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #00bcd4;
+  outline: none;
 }
 
 
@@ -220,7 +226,6 @@ body {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 10px;
-  margin-top: 2%;
   text-align: center;
   color: #ffffff;
 }
@@ -260,7 +265,6 @@ body {
 }
   
 .services-footer {
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   color: #ffffff;
