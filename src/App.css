@@ -8,7 +8,11 @@ body {
     margin: 0;
     padding: 0;
   }
-  
+
+
+
+  /* CSS for NAVBAR */
+
   .custom-navbar {
     background-color: #ffffff;
     position:fixed !important;
@@ -33,47 +37,74 @@ body {
     color: #ffffff;
   }
   
-  .home-section {
-    text-align: center;
-    background-color: #3A506B;
-    color: rgb(255, 255, 255);
-  }
 
-  .home-image{
-    width: 100%;
-    height: 20px;
-    margin-top: 9%;
-    opacity: 0.7;
-    max-width:fit-content;
-    height:fit-content;
-    border-radius: 20px;
-   }
+  /* Custom CSS for the HOME PAGE */
+
+.home-section {
+  text-align: center;
+  background-color: #3A506B;
+  color: white;
+  padding-bottom: 40px;
+}
+
+.home-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.7; 
+  position: relative;
+}
+
+.home-image-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80%; 
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.98), transparent);
+  z-index: 1;
+}
+
+.home-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size:larger; 
+  font-weight:bolder; 
+  text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+  z-index: 2; 
+}
+
+.home-description {
+  font-size: 20px;
+  margin: 20px auto;
+  width: 60%;
+  text-align: center;
+}
+
+.home-hr {
+  width: 60%;
+  margin: 40px auto;
+  border: 1px solid #777;
+}
+
+.home-heading {
+  font-size: 3rem;
+  font-weight: 0 !important;
+  margin-bottom: 10px;
+}
   
-  .home-description {
-    font-size: 20px;
-    margin-top: 1rem;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
-  }
 
-  .home-text{
-    font-size: 20px;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
-  }
+  /* CSS for CONTACT PAGE */
 
-  .home-hr{
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
-  }
-  
   .contact-section {
     text-align: center;
     padding: 3rem 0;
@@ -115,7 +146,7 @@ body {
   .separator {
     width: 2px;
     height: 150px;
-    /* background-color: #fff; */
+    background-color: #fff;
     margin: 0 30px;
   }
   
@@ -147,8 +178,11 @@ body {
   display: block;
   object-fit: cover;
   opacity: 0.7;
-  border-radius: 5px;
+  border-radius: 0px;
 }
+
+
+/* CSS for SERVICES PAGE */
 
   .footer {
     display: flex;
@@ -178,6 +212,9 @@ body {
 .separator {
   color: #142f33;
 }
+
+
+/* CSS for SERVICES PAGE */
 
 .services-header-text {
   font-size: 2rem;
