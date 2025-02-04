@@ -36,10 +36,10 @@ const Services = () => {
       </div>
       <div className="services-footer">
         <p>
-          VIDYA - School Website is a powerful cloud-based platform designed for effortless school website development. 
-          Whether you're an educator or administrator, our intuitive tools make it easy to create a visually stunning and 
-          highly functional academic web presence, enhancing communication, engagement, and accessibility for students, 
-          parents, and staff.
+          IT Solutions software is a powerful cloud-based platform designed for effortless software website development. 
+          Whether you're an administrator or stakeholders, our intuitive tools make it easy to create a visually stunning and 
+          highly functional software web presence, enhancing communication, engagement, and accessibility for client, 
+          stakeholders, and staff.
         </p>
         <br />
         <p>Ready to take your business to the next level? <a href="#form">Contact us today!</a></p>

@@ -9,7 +9,7 @@ const Contact = () => {
 
       <h2 className="contact-title">Reach out to us</h2>
       <p className="contact-subtext">
-      Have questions or need assistance? Our team is here to help! Whether you're looking for a comprehensive school management solution with VIDYA, a stunning academic web presence, or expert services to support your business growth, we've got you covered. Reach out to us today to learn more about our offerings, request a demo, or get personalized guidance. Let’s work together to streamline your operations and enhance your digital presence!
+      Have questions or need assistance? Our team is here to help! Whether you're looking for a comprehensive software management solution with IT Solutions, a stunning software web presence, or expert services to support your business growth, we've got you covered. Reach out to us today to learn more about our offerings, request a demo, or get personalized guidance. Let’s work together to streamline your operations and enhance your digital presence!
       </p>
 
       <div className="contact-image-container">
@@ -17,8 +17,8 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-          <p><strong>Email:</strong> <a href="mailto:vidyaone@gmail.com">vidyaone@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
+          <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
+            <p><strong>Address:</strong> ABC Street, India</p>
             <p><strong>Phone:</strong> +91-9876543210</p>
           </div>
 
