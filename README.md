@@ -29,7 +29,7 @@ This is a **modern, responsive, and visually appealing** IT company landing page
 ---
 
 ## 📸 Screenshots
-    SCREENSHOTS ARE AVAILABLE IN ASSETS FOLDER.
+    SCREENSHOTS ARE AVAILABLE IN SCREENSHOT FOLDER.
 🔹 **Home Section** <br>
 🔹 **Services Section** <br>
 🔹 **Contact Section** <br>
