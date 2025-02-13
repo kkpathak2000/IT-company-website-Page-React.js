@@ -1,52 +1,6 @@
-// import { useState } from 'react';
-
-// function Contact() {
-//   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-//   const [responseMessage, setResponseMessage] = useState('');
-
-//   const handleChange = (e) => {
-//     setFormData({ ...formData, [e.target.name]: e.target.value });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const response = await fetch('http://localhost:5000/api/contact', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(formData),
-//     });
-
-//     const data = await response.json();
-//     setResponseMessage(data.message);
-//     setFormData({ name: '', email: '', message: '' });  
-//   };
-
-//   return (
-//     <div>
-//       <h2>Contact Us</h2>
-//       <form onSubmit={handleSubmit}>
-//         <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-//         <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
-//         <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} required></textarea>
-//         <button type="submit">Send</button>
-//       </form>
-//       {responseMessage && <p>{responseMessage}</p>}
-//     </div>
-//   );
-// }
-
-// export default Contact;
-
-
-
-
-
-
-
-//-----------------------------------------------------------------------------------------------
 import React, { useState } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
-// import axios from 'axios';
+import axios from 'axios';
 import contactImage from '../assets/contact.png';
 
 const Contact = () => {
@@ -63,17 +17,17 @@ const Contact = () => {
 
   //function 1
   //----------------------------------------------
-  // const handleSend = async () => {
-  //   try {
-  //     const response = await axios.post('http://localhost:5000/api/contact', formData);
-  //     console.log(response.data);
-  //     alert('Message sent successfully!');
-  //     setFormData({ name: '', email: '', message: '' });
-  //   } catch (error) {
-  //     console.error('Error sending message:', error);
-  //     alert('Failed to send message. Please try again.');
-  //   }
-  // };
+  const handleSend = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000', formData);
+      console.log(response.data);
+      alert('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    }
+  };
 
 
   //function 2
@@ -127,7 +81,7 @@ const Contact = () => {
               <Label for="message">Message</Label>
               <Input type="textarea" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" />
             </FormGroup>
-            <Button color='light' size="sm" /*onClick={handleSend}*/>Send Message</Button>
+            <Button color='light' size="sm" onClick={handleSend}>Send Message</Button>
           </Form>
         </div>
       </div>
@@ -149,7 +103,52 @@ export default Contact;
 
 
 
-//-----------------------------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------------------------------------
+// import { useState } from 'react';
+
+// function Contact() {
+//   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+//   const [responseMessage, setResponseMessage] = useState('');
+
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const response = await fetch('http://localhost:5000/api/contact', {
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(formData),
+//     });
+
+//     const data = await response.json();
+//     setResponseMessage(data.message);
+//     setFormData({ name: '', email: '', message: '' });  
+//   };
+
+//   return (
+//     <div>
+//       <h2>Contact Us</h2>
+//       <form onSubmit={handleSubmit}>
+//         <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+//         <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+//         <textarea name="message" placeholder="Message" value={formData.message} onChange={handleChange} required></textarea>
+//         <button type="submit">Send</button>
+//       </form>
+//       {responseMessage && <p>{responseMessage}</p>}
+//     </div>
+//   );
+// }
+// export default Contact;
+
+
+
+
+
+//---------------------------------------------------------------------------------------------------------
 // import React from 'react';
 // import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 // import contactImage from '../assets/contact.png';
@@ -198,3 +197,4 @@ export default Contact;
 // };
 
 // export default Contact;
+//---------------------------------------------------------------------------------------------------------

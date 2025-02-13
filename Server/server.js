@@ -1,3 +1,62 @@
+const express = require('express');
+const mysql = require('mysql');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = 5000;
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//MySQL Connection
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Munnu.123',
+  database: 'contact_form_db'
+});
+
+db.connect(err => {
+  if (err) {
+    console.error('MySQL connection error:', err);
+  } else {
+    console.log('Connected to MySQL');
+  }
+});
+
+// API Route to Save Form Data
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+  const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
+  db.query(sql, [name, email, message], (err, result) => {
+    if (err) {
+      res.status(500).json({ error: 'Database error' });
+    } else {
+      res.status(201).json({ message: 'Message saved successfully' });
+    }
+  });
+});
+
+app.use('/', (req, res) => {
+    res.status(200).send('Server is working at 05:00, [Test by using app.use]');
+});
+
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
 //  const express = require('express');
 //  const cors = require('cors');
 //  const bodyParser = require('body-parser');
@@ -34,50 +93,3 @@
 
 
 //--------------------------------------------------------------------------------------------------------
-const express = require('express');
-const mysql = require('mysql');
-const cors = require('cors');
-// const bodyParser = require('body-parser');
-
-const app = express();
-const PORT = 5000;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// //MySQL Connection
-// const db = mysql.createConnection({
-//   host: 'localhost',
-//   user: 'root',
-//   password: '',
-//   database: 'contact_form_db'
-// });
-
-// db.connect(err => {
-//   if (err) {
-//     console.error('MySQL connection error:', err);
-//   } else {
-//     console.log('Connected to MySQL');
-//   }
-// });
-
-// // API Route to Save Form Data
-// app.post('/api/contact', (req, res) => {
-//   const { name, email, message } = req.body;
-//   const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
-//   db.query(sql, [name, email, message], (err, result) => {
-//     if (err) {
-//       res.status(500).json({ error: 'Database error' });
-//     } else {
-//       res.status(201).json({ message: 'Message saved successfully' });
-//     }
-//   });
-// });
-
-app.use('/', (req, res) => {
-    res.status(200).send('Server is working, [Test by using app.use]');
-});
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
