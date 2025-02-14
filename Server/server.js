@@ -41,7 +41,7 @@ app.post('/api/contact', (req, res) => {
 });
 
 app.use('/', (req, res) => {
-    res.status(200).send('Server is working at 05:00, [Test by using app.use]');
+    res.status(200).send('Server is working at 05:35, [Test by using app.use]');
 });
 
 
