@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Munnu.123',
+  password: '********',
   database: 'contact_form_db'
 });
 
@@ -28,20 +28,48 @@ db.connect(err => {
 });
 
 // API Route to Save Form Data
-app.post('/api/contact', (req, res) => {
+app.post('/', (req, res) => {
   const { name, email, message } = req.body;
-  const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
-  db.query(sql, [name, email, message], (err, result) => {
-    if (err) {
-      res.status(500).json({ error: 'Database error' });
-    } else {
-      res.status(201).json({ message: 'Message saved successfully' });
-    }
-  });
+//   const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
+//   db.query(sql, [name, email, message], (err, result) => {
+//     if (err) {
+//       res.status(500).json({ error: 'Database error' });
+//     } else {
+      res.status(201).json({ message: `Message saved successfully ${name}, ${email}, ${message}` });
+//     }
+//   });
 });
 
+
+app.post('/api', (req, res) => {
+    const { name, email, message } = req.body;
+  //   const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
+  //   db.query(sql, [name, email, message], (err, result) => {
+  //     if (err) {
+  //       res.status(500).json({ error: 'Database error' });
+  //     } else {
+        res.status(201).json({ message: `API Message saved successfully ${name}, ${email}, ${message}`});
+  //     }
+  //   });
+  });
+
+
+  app.post('/api/contact', (req, res) => {
+    const { name, email, message } = req.body;
+  //   const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
+  //   db.query(sql, [name, email, message], (err, result) => {
+  //     if (err) {
+  //       res.status(500).json({ error: 'Database error' });
+  //     } else {
+        res.status(201).json({ message: `API/CONTACT Message saved successfully ${name}, ${email}, ${message}`});
+  //     }
+  //   });
+  });
+
+
+
 app.use('/', (req, res) => {
-    res.status(200).send('Server is working at 05:35, [Test by using app.use]');
+    res.status(200).send('Server is working, [Test by using app.use]');
 });
 
 

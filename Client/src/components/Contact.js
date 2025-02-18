@@ -19,7 +19,7 @@ const Contact = () => {
   //----------------------------------------------
   const handleSend = async () => {
     try {
-      const response = await axios.post('http://localhost:5000', formData);
+      const response = await axios.post('http://localhost:5000/api/contact', formData);
       console.log(response.data);
       alert('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
