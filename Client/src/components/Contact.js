@@ -70,16 +70,16 @@ const Contact = () => {
 
           <Form id="form" className="contact-form">
             <FormGroup>
-              <Label for="name">Name</Label>
-              <Input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" />
+              <Label for="name">Name <span className="text-danger">*</span></Label>
+              <Input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
             </FormGroup>
             <FormGroup>
-              <Label for="email">Email</Label>
-              <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" />
+              <Label for="email">Email <span className="text-danger">*</span></Label>
+              <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
             </FormGroup>
             <FormGroup>
-              <Label for="message">Message</Label>
-              <Input type="textarea" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" />
+              <Label for="message">Message <span className="text-danger">*</span></Label>
+              <Input type="textarea" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
             <Button color='light' size="sm" onClick={handleSend}>Send Message</Button>
           </Form>
