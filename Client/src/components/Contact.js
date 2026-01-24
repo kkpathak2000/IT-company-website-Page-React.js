@@ -71,15 +71,15 @@ const Contact = () => {
           <Form id="form" className="contact-form">
             <FormGroup>
               <Label for="name">Name <span className="text-danger">*</span></Label>
-              <Input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger">*</span></Label>
-              <Input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
             </FormGroup>
             <FormGroup>
               <Label for="message">Message <span className="text-danger">*</span></Label>
-              <Input type="textarea" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
+              <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
             <Button color='light' size="sm" onClick={handleSend}>Send Message</Button>
           </Form>
