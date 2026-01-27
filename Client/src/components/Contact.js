@@ -9,6 +9,9 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,14 +21,20 @@ const Contact = () => {
   //function 1
   //----------------------------------------------
   const handleSend = async () => {
+    setIsLoading(true);
+    setResponseMessage('');
     try {
       const response = await axios.post('http://localhost:5000/api/contact', formData);
       console.log(response.data);
-      alert('Message sent successfully!');
+      setIsSuccess(true);
+      setResponseMessage('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
       console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
+      setIsSuccess(false);
+      setResponseMessage('Failed to send message. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -81,7 +90,14 @@ const Contact = () => {
               <Label for="message">Message <span className="text-danger">*</span></Label>
               <Input type="textarea" name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
-            <Button color='light' size="sm" onClick={handleSend}>Send Message</Button>
+            <Button color='light' size="sm" onClick={handleSend} disabled={isLoading}>
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </Button>
+            {responseMessage && (
+              <div className={`response-message ${isSuccess ? 'success' : 'error'}`}>
+                {responseMessage}
+              </div>
+            )}
           </Form>
         </div>
       </div>
