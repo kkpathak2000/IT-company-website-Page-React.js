@@ -21,6 +21,11 @@ const Contact = () => {
   //function 1
   //----------------------------------------------
   const handleSend = async () => {
+    if (!formData.name || !formData.email || !formData.message) {
+      setIsSuccess(false);
+      setResponseMessage('Please fill in all required fields.');
+      return;
+    }
     setIsLoading(true);
     setResponseMessage('');
     try {
@@ -94,7 +99,7 @@ const Contact = () => {
               {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             {responseMessage && (
-              <div className={`response-message ${isSuccess ? 'success' : 'error'}`}>
+              <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
                 {responseMessage}
               </div>
             )}
