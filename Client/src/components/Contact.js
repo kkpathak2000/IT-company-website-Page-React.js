@@ -20,7 +20,8 @@ const Contact = () => {
 
   //function 1
   //----------------------------------------------
-  const handleSend = async () => {
+  const handleSend = async (event) => {
+    event.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setIsSuccess(false);
       setResponseMessage('Please fill in all required fields.');
@@ -82,7 +83,7 @@ const Contact = () => {
 
           <div className="separator"></div>
 
-          <Form id="form" className="contact-form">
+          <Form id="form" className="contact-form" onSubmit={handleSend}>
             <FormGroup>
               <Label for="name">Name <span className="text-danger">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
@@ -95,7 +96,7 @@ const Contact = () => {
               <Label for="message">Message <span className="text-danger">*</span></Label>
               <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
-            <Button color='light' size="sm" onClick={handleSend} disabled={isLoading}>
+            <Button color='light' size="sm" type="submit" disabled={isLoading}>
               {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             {responseMessage && (
