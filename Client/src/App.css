@@ -224,6 +224,7 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
   border-color: #8BE9FD;  
+  box-shadow: 0 0 0 0.2rem rgba(139, 233, 253, 0.25);
   outline: none;
 }
 

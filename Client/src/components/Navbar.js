@@ -62,13 +62,34 @@ const CustomNavbar = () => {
       </NavbarBrand>
       <Nav className= "nav-class" navbar>
         <NavItem>
-          <NavLink href="#home" className={activeLink === '#home' ? 'active' : ''} onClick={(e) => handleScroll(e, '#home')}>Home</NavLink>
+          <NavLink
+            href="#home"
+            className={activeLink === '#home' ? 'active' : ''}
+            aria-current={activeLink === '#home' ? 'page' : undefined}
+            onClick={(e) => handleScroll(e, '#home')}
+          >
+            Home
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#services" className={activeLink === '#services' ? 'active' : ''} onClick={(e) => handleScroll(e, '#services')}>Our Services</NavLink>
+          <NavLink
+            href="#services"
+            className={activeLink === '#services' ? 'active' : ''}
+            aria-current={activeLink === '#services' ? 'page' : undefined}
+            onClick={(e) => handleScroll(e, '#services')}
+          >
+            Our Services
+          </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#contact" className={activeLink === '#contact' ? 'active' : ''} onClick={(e) => handleScroll(e, '#contact')}>Contact Us</NavLink>
+          <NavLink
+            href="#contact"
+            className={activeLink === '#contact' ? 'active' : ''}
+            aria-current={activeLink === '#contact' ? 'page' : undefined}
+            onClick={(e) => handleScroll(e, '#contact')}
+          >
+            Contact Us
+          </NavLink>
         </NavItem>
       </Nav>
     </Navbar>
