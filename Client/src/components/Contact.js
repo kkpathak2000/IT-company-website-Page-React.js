@@ -85,18 +85,18 @@ const Contact = () => {
 
           <Form id="form" className="contact-form" onSubmit={handleSend}>
             <FormGroup>
-              <Label for="name">Name <span className="text-danger">*</span></Label>
+              <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
             </FormGroup>
             <FormGroup>
-              <Label for="email">Email <span className="text-danger">*</span></Label>
+              <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
             </FormGroup>
             <FormGroup>
-              <Label for="message">Message <span className="text-danger">*</span></Label>
+              <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
-            <Button color='light' size="sm" type="submit" disabled={isLoading}>
+            <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
               {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             {responseMessage && (
