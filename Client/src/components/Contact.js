@@ -96,7 +96,7 @@ const Contact = () => {
               <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required aria-required="true" />
             </FormGroup>
-            <Button color='light' size="sm" type="submit" disabled={isLoading}>
+            <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
               {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             {responseMessage && (
