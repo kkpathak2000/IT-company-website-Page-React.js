@@ -85,24 +85,19 @@ const Contact = () => {
 
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
-              <Label for="name">Name <span aria-hidden="true" className="text-danger">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
+              <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" />
             </FormGroup>
             <FormGroup>
-              <Label for="email">Email <span aria-hidden="true" className="text-danger">*</span></Label>
-              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
+              <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" />
             </FormGroup>
             <FormGroup>
-              <Label for="message">Message <span aria-hidden="true" className="text-danger">*</span></Label>
-              <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
+              <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
+              <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required aria-required="true" />
             </FormGroup>
-            <Button color='light' size="sm" type="submit" disabled={isLoading}>
-              {isLoading ? (
-                <>
-                  <Spinner size="sm" className="me-2" />
-                  Sending...
-                </>
-              ) : 'Send Message'}
+            <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
+              {isLoading ? 'Sending...' : 'Send Message'}
             </Button>
             {responseMessage && (
               <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
