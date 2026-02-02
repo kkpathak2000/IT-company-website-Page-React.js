@@ -1,0 +1,3 @@
+## 2025-01-24 - Restoring Focus Visibility with :focus-visible
+**Learning:** Removing the default browser focus outline (e.g., `outline: none;`) is a common accessibility anti-pattern that leaves keyboard users stranded. In this repository, I restored focus visibility using a theme-consistent `box-shadow` combined with the `:focus-visible` pseudo-class. This ensures that only users who need the focus indicator see it, satisfying both design aesthetics and accessibility requirements.
+**Action:** In future tasks, I will proactively audit global CSS for `outline: none` and implement `:focus-visible` fallbacks that use `box-shadow` or `outline` to maintain clear navigation paths for keyboard-only users.

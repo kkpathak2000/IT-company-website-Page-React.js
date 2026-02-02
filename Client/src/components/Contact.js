@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Spinner } from 'reactstrap';
 import axios from 'axios';
 import contactImage from '../assets/contact.png';
 
@@ -83,21 +83,26 @@ const Contact = () => {
 
           <div className="separator"></div>
 
-          <Form id="form" className="contact-form" onSubmit={handleSend}>
+          <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
-              <Label for="name">Name <span className="text-danger">*</span></Label>
+              <Label for="name">Name <span aria-hidden="true" className="text-danger">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
             </FormGroup>
             <FormGroup>
-              <Label for="email">Email <span className="text-danger">*</span></Label>
+              <Label for="email">Email <span aria-hidden="true" className="text-danger">*</span></Label>
               <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
             </FormGroup>
             <FormGroup>
-              <Label for="message">Message <span className="text-danger">*</span></Label>
+              <Label for="message">Message <span aria-hidden="true" className="text-danger">*</span></Label>
               <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required />
             </FormGroup>
             <Button color='light' size="sm" type="submit" disabled={isLoading}>
-              {isLoading ? 'Sending...' : 'Send Message'}
+              {isLoading ? (
+                <>
+                  <Spinner size="sm" className="me-2" />
+                  Sending...
+                </>
+              ) : 'Send Message'}
             </Button>
             {responseMessage && (
               <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>

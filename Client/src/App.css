@@ -223,8 +223,15 @@ body {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #8BE9FD;  
+  border-color: #8BE9FD;
   outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(139, 233, 253, 0.25);
+}
+
+.navbar-dark .navbar-nav .nav-link:focus-visible {
+  outline: 2px solid #FF79C6;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .contact-hr{
