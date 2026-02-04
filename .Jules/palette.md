@@ -4,3 +4,7 @@
 
 **Learning:** In single-page scroll-spy layouts, visual "active" classes on nav links are insufficient for assistive technology.
 **Action:** Use `aria-current="page"` on the active navigation link to programmatically communicate the current section to screen readers.
+
+## 2026-02-04 - [Back to Top Micro-UX]
+**Learning:** For long landing pages, a "Back to Top" button is a classic micro-UX win. Leveraging Bootstrap utility classes can significantly reduce custom CSS and help meet tight line-limit constraints.
+**Action:** Use 'position-fixed bottom-0 end-0 m-4 rounded-circle shadow' for quick, accessible floating buttons. Always prefer window.scrollY over window.pageYOffset.
