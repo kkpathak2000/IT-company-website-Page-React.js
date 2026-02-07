@@ -97,7 +97,14 @@ const Contact = () => {
               <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required aria-required="true" />
             </FormGroup>
             <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
-              {isLoading ? 'Sending...' : 'Send Message'}
+              {isLoading ? (
+                <>
+                  <Spinner size="sm" className="me-2" />
+                  Sending...
+                </>
+              ) : (
+                'Send Message'
+              )}
             </Button>
             {responseMessage && (
               <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
