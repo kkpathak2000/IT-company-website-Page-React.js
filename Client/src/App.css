@@ -1,3 +1,13 @@
+html {
+  scroll-padding-top: 62px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 .app {
   background-color: #1E1E2E;
 }
@@ -264,6 +274,12 @@ body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .separator {
