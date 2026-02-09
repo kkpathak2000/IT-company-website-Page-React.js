@@ -1,3 +1,13 @@
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-padding-top: 62px;
+}
+
 .app {
   background-color: #1E1E2E;
 }
@@ -280,6 +290,12 @@ body {
   text-decoration: underline;
 }
 
+.footer a:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 .separator {
   color: #8BE9FD;
 }
@@ -374,4 +390,26 @@ body {
 .error {
   background-color: #f8d7da;
   color: #721c24;
+}
+/* CSS for BACK TO TOP */
+
+.back-to-top {
+  z-index: 1050;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF79C6;
+  border: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #BD93F9;
+  transform: scale(1.1);
+}
+
+.back-to-top svg {
+  color: white;
 }

@@ -1,3 +1,10 @@
-## 2025-05-15 - [Focus Visibility and Form Loading UX]
-**Learning:** In Bootstrap 5/React 19 environments, default browser focus outlines are often suppressed or insufficient. Applying a custom `:focus-visible` style using a theme-consistent `box-shadow` or high-contrast `outline` significantly improves keyboard navigation accessibility without compromising aesthetic for mouse users. Additionally, providing immediate visual feedback (loading spinner + "Sending..." text) and disabling the submit button during async form submission prevents user frustration and accidental double-posts.
-**Action:** Always verify focus visibility for interactive elements (links, buttons) using keyboard navigation (Tab) and ensure all async actions have distinct loading/disabled states.
+## 2025-06-06 - Focus Visibility and Active Navigation
+**Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
+**Action:** Always check for `outline: none` in CSS and ensure a visible focus state exists for all interactive elements.
+
+**Learning:** In single-page scroll-spy layouts, visual "active" classes on nav links are insufficient for assistive technology.
+**Action:** Use `aria-current="page"` on the active navigation link to programmatically communicate the current section to screen readers.
+
+## 2026-02-04 - [Back to Top Micro-UX]
+**Learning:** For long landing pages, a "Back to Top" button is a classic micro-UX win. Leveraging Bootstrap utility classes can significantly reduce custom CSS and help meet tight line-limit constraints.
+**Action:** Use 'position-fixed bottom-0 end-0 m-4 rounded-circle shadow' for quick, accessible floating buttons. Always prefer window.scrollY over window.pageYOffset.
