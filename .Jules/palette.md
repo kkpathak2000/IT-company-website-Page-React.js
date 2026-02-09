@@ -5,9 +5,6 @@
 **Learning:** In single-page scroll-spy layouts, visual "active" classes on nav links are insufficient for assistive technology.
 **Action:** Use `aria-current="page"` on the active navigation link to programmatically communicate the current section to screen readers.
 
-## 2026-02-08 - Professional Polish and Global Accessibility
-**Learning:** Fixed navigation bars can obscure content when navigating via anchor links. Using `scroll-padding-top` on the `html` element ensures that the scrolled-to element remains visible below the header.
-**Action:** Always include `scroll-padding-top` in CSS when using fixed headers.
-
-**Learning:** Smooth scrolling improves the perceived quality of navigation but can cause issues for users with vestibular disorders.
-**Action:** Wrap `scroll-behavior: smooth` in a `(prefers-reduced-motion: no-preference)` media query to provide a delightful experience while respecting accessibility preferences.
+## 2026-02-04 - [Back to Top Micro-UX]
+**Learning:** For long landing pages, a "Back to Top" button is a classic micro-UX win. Leveraging Bootstrap utility classes can significantly reduce custom CSS and help meet tight line-limit constraints.
+**Action:** Use 'position-fixed bottom-0 end-0 m-4 rounded-circle shadow' for quick, accessible floating buttons. Always prefer window.scrollY over window.pageYOffset.
