@@ -8,3 +8,7 @@
 ## 2026-02-04 - [Back to Top Micro-UX]
 **Learning:** For long landing pages, a "Back to Top" button is a classic micro-UX win. Leveraging Bootstrap utility classes can significantly reduce custom CSS and help meet tight line-limit constraints.
 **Action:** Use 'position-fixed bottom-0 end-0 m-4 rounded-circle shadow' for quick, accessible floating buttons. Always prefer window.scrollY over window.pageYOffset.
+
+## 2025-06-07 - Semantic Footer and Navigation Accessibility
+**Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
+**Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
