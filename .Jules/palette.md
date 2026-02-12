@@ -8,3 +8,7 @@
 ## 2026-02-04 - [Back to Top Micro-UX]
 **Learning:** For long landing pages, a "Back to Top" button is a classic micro-UX win. Leveraging Bootstrap utility classes can significantly reduce custom CSS and help meet tight line-limit constraints.
 **Action:** Use 'position-fixed bottom-0 end-0 m-4 rounded-circle shadow' for quick, accessible floating buttons. Always prefer window.scrollY over window.pageYOffset.
+
+## 2026-02-12 - Accessible Character Counters and Footer Semantic
+**Learning:** For accessibility on the app's dark background (#1E1E2E), avoid using standard Bootstrap 'text-muted' for small feedback text (like character counters); instead, use the cyan accent color (#8BE9FD) to ensure sufficient contrast and visibility. Providing real-time character feedback using `aria-live="polite"` and `maxLength` constraints prevents submission errors and improves UX.
+**Action:** Always implement character counters for limited text inputs with theme-consistent high-contrast colors. Ensure decorative elements like separators use `aria-hidden="true"`.
