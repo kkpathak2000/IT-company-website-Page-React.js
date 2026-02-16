@@ -222,7 +222,7 @@ body {
   border-radius: 10px;
 }
 
-.separator {
+.contact-overlay .separator {
   width: 2px;
   height: 150px;
   background-color: #8BE9FD;
