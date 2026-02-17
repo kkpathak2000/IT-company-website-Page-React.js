@@ -6,10 +6,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>&copy; {currentYear} IT Solutions Tech. All Rights Reserved.</p>
-      <span className="separator" aria-hidden="true">|</span>
       <nav aria-label="Footer Navigation">
         <a href="#privacy">Privacy Policy</a>
-        <span className="separator" aria-hidden="true">|</span>
+        <span className="mx-2" aria-hidden="true">|</span>
         <a href="#terms">Terms of Service</a>
       </nav>
     </footer>
