@@ -86,11 +86,11 @@ const Contact = () => {
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" />
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} />
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" />
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} />
             </FormGroup>
             <FormGroup>
               <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
@@ -105,8 +105,8 @@ const Contact = () => {
                 aria-required="true"
                 maxLength={500}
               />
-              <div className="text-end small mt-1" style={{ color: '#8BE9FD' }} aria-live="polite">
-                {formData.message.length}/500 characters
+              <div className="text-end small text-muted" aria-live="polite">
+                {formData.message.length}/500
               </div>
             </FormGroup>
             <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
@@ -120,7 +120,7 @@ const Contact = () => {
               )}
             </Button>
             {responseMessage && (
-              <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
+              <div role="alert" aria-live="polite" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
                 {responseMessage}
               </div>
             )}
