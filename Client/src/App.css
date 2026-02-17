@@ -2,6 +2,25 @@ html {
   scroll-padding-top: 62px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: #8BE9FD;
+  color: #000000;
+  padding: 8px 16px;
+  z-index: 2000;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom-right-radius: 8px;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #FF79C6;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
