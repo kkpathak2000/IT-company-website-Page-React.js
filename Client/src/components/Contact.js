@@ -94,7 +94,20 @@ const Contact = () => {
             </FormGroup>
             <FormGroup>
               <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="textarea" name="message" id="message" value={formData.message} onChange={handleChange} placeholder="Your Message" required aria-required="true" />
+              <Input
+                type="textarea"
+                name="message"
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Your Message"
+                required
+                aria-required="true"
+                maxLength={500}
+              />
+              <div className="text-end small text-muted" aria-live="polite">
+                {formData.message.length}/500
+              </div>
             </FormGroup>
             <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
               {isLoading ? (
