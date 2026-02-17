@@ -99,10 +99,12 @@ const Contact = () => {
             <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
               {isLoading ? (
                 <>
-                  <Spinner size="sm" className="me-2" aria-hidden="true" />
+                  <Spinner size="sm" className="me-2" />
                   Sending...
                 </>
-              ) : 'Send Message'}
+              ) : (
+                'Send Message'
+              )}
             </Button>
             {responseMessage && (
               <div role="alert" aria-live="polite" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
