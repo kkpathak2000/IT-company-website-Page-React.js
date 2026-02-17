@@ -105,12 +105,8 @@ const Contact = () => {
                 aria-required="true"
                 maxLength={500}
               />
-              <div
-                className="text-end small mt-1"
-                style={{ color: '#8BE9FD', opacity: 0.9 }}
-                aria-live="polite"
-              >
-                {formData.message.length}/500 characters
+              <div className="text-end small text-muted" aria-live="polite">
+                {formData.message.length}/500
               </div>
             </FormGroup>
             <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
@@ -124,7 +120,7 @@ const Contact = () => {
               )}
             </Button>
             {responseMessage && (
-              <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
+              <div role="alert" aria-live="polite" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
                 {responseMessage}
               </div>
             )}
