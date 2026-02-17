@@ -107,7 +107,7 @@ const Contact = () => {
               )}
             </Button>
             {responseMessage && (
-              <div role="alert" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
+              <div role="alert" aria-live="polite" className={`response-message ${isSuccess ? 'success' : 'error'}`}>
                 {responseMessage}
               </div>
             )}
