@@ -431,3 +431,31 @@ body {
 .back-to-top svg {
   color: white;
 }
+
+/* UX Improvements: Skip Link and Character Counters */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #282A36;
+  color: #8BE9FD;
+  padding: 10px 20px;
+  z-index: 2000;
+  text-decoration: none;
+  border: 2px solid #8BE9FD;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.3s ease;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+}
+
+.counter-text {
+  color: #8BE9FD !important;
+  font-weight: 500;
+}
