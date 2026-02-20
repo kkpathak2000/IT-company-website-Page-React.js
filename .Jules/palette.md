@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2026-02-05 - Design System Constraints and Functional Boundaries
+**Learning:** Adding custom CSS classes for minor styling tweaks in a project with a robust design system (like Bootstrap 5) can violate project boundaries and lead to inconsistency. Additionally, changing functional constraints like `maxLength` on existing inputs is considered a functional change rather than a micro-UX improvement.
+**Action:** Prioritize existing utility classes (e.g., `text-info`) for styling micro-UX enhancements and respect existing functional constraints unless explicitly asked to change them.

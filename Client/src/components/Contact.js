@@ -65,7 +65,21 @@ const Contact = () => {
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} />
+              <Input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                required
+                aria-required="true"
+                maxLength={100}
+                aria-describedby="name-counter"
+              />
+              <div id="name-counter" className="text-end small text-info" aria-live="polite">
+                {formData.name.length}/100
+              </div>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
@@ -83,8 +97,9 @@ const Contact = () => {
                 required
                 aria-required="true"
                 maxLength={500}
+                aria-describedby="message-counter"
               />
-              <div className="text-end small text-muted" aria-live="polite">
+              <div id="message-counter" className="text-end small text-info" aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>
