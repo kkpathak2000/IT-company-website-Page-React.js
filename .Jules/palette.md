@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2026-02-22 - [Accessible Form Feedback]
+**Learning:** Character counters on a dark theme need high-contrast colors (like Bootstrap's `text-info`) to be WCAG compliant, as default `text-muted` often fails. Associating these counters with inputs via `aria-describedby` ensures that screen reader users are programmatically informed of constraints and real-time updates.
+**Action:** Use `text-info` and `aria-describedby` for all form field counters and descriptions.
