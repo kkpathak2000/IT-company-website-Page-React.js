@@ -65,11 +65,11 @@ const Contact = () => {
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} />
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" />
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} />
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" />
             </FormGroup>
             <FormGroup>
               <Label for="message">Message <span className="text-danger" aria-hidden="true">*</span></Label>
@@ -84,7 +84,7 @@ const Contact = () => {
                 aria-required="true"
                 maxLength={500}
               />
-              <div className="text-end small text-muted" aria-live="polite">
+              <div className="text-end small text-info" aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>

@@ -16,6 +16,24 @@ html {
   background-color: #1E1E2E;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: #8BE9FD;
+  padding: 8px;
+  z-index: 1001;
+  transition: top 0.3s;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #8BE9FD;
+}
+
 body {
   background-color: #1E1E2E;
   color:#F8F8F2;
