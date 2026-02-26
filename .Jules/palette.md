@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2026-02-26 - [Skip to Main Content for Accessibility]
+**Learning:** A 'Skip to main content' link is a critical accessibility requirement for keyboard and screen reader users, especially in apps with complex or sticky navigation. Using high-contrast styling (e.g., Cyan on Black) and ensuring it's the first focusable element provides a significant UX win for accessibility. Wrapping the primary content in a semantic `<main>` tag with `tabIndex="-1"` ensures consistent focus behavior when the skip link is activated.
+**Action:** Always include a 'Skip to main content' link as the first element in `App.js` and ensure it targets a semantic `<main>` landmark.
