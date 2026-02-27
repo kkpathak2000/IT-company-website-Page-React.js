@@ -23,6 +23,31 @@ body {
     padding: 0;
   }
 
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000000;
+  color: #8BE9FD;
+  padding: 8px;
+  z-index: 2000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #8BE9FD;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: none;
+  box-shadow: 0 0 0 2px #8BE9FD;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
 
 
   /* CSS for NAVBAR */
