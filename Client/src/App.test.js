@@ -1,6 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
+jest.mock('./components/Contact', () => {
+  return function DummyContact() {
+    return <div data-testid="contact-component">Contact Component</div>;
+  };
+});
+
 test('renders the Home navigation link', () => {
   render(<App />);
   const linkElement = screen.getByText(/Home/i);
