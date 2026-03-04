@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2025-06-08 - Keyboard Navigation and Skip Links
+**Learning:** For single-page applications with fixed navigation bars, a "Skip to main content" link is essential for keyboard accessibility. It must be the first focusable element in the DOM and requires a matching landmark with `tabIndex="-1"` to ensure focus is correctly moved in all browsers.
+**Action:** Always include a skip link as the first child of the main container and wrap primary content in a `<main id="main-content" tabIndex="-1">` landmark.
