@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2025-06-08 - Character Counter Contrast and Visibility
+**Learning:** Using `text-muted` on dark backgrounds (like #1E1E2E) often fails WCAG contrast standards. Switching to a theme-consistent accent color like `text-info` (#8BE9FD) improves readability while maintaining the design aesthetic.
+**Action:** Always verify contrast of helper text and counters against the background; use `text-info` or similar high-contrast utilities for secondary information in dark themes.
