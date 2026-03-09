@@ -16,6 +16,29 @@ html {
   background-color: #1E1E2E;
 }
 
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background: #FF79C6;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 2000;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
 body {
   background-color: #1E1E2E;
   color:#F8F8F2;
