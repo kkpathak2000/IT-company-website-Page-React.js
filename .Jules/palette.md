@@ -21,3 +21,13 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2024-05-23 - Accessibility Landmarks and Dark Theme Contrast
+**Learning:** Implementing a "Skip to main content" link is a major accessibility win for keyboard users. To work correctly across all browsers, the target landmark (e.g., `<main>`) must have `tabIndex="-1"` to allow it to receive programmatic focus when the link is clicked.
+**Action:** Always pair "Skip to content" links with a `<main id="main-content" tabIndex="-1">` landmark.
+
+**Learning:** Standard Bootstrap utility classes like `text-muted` often fail WCAG contrast requirements on dark backgrounds (#1E1E2E). Switching to `text-info` provides a theme-consistent, high-contrast (15.17:1) alternative for character counters and secondary text.
+**Action:** Audit "muted" text on dark themes and replace with higher contrast brand colors to meet accessibility standards.
+
+**Learning:** Jest tests can fail with `SyntaxError` when encountering ESM-only dependencies (like `axios`) in a standard React setup. Mocking the high-level component that imports these dependencies is an efficient workaround to maintain test suite health.
+**Action:** Use `jest.mock()` to isolate components with ESM dependency issues during unit/integration testing.
