@@ -84,7 +84,7 @@ const Contact = () => {
                 aria-required="true"
                 maxLength={500}
               />
-              <div className="text-end small text-muted" aria-live="polite">
+              <div className="text-end small text-info" aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>
