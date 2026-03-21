@@ -21,3 +21,10 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2026-03-21 - Input Autocomplete and Contrast Awareness
+**Learning:** Explicitly defining `autoComplete` attributes (e.g., `name`, `email`) on form inputs significantly reduces user friction by allowing browsers to leverage stored profile data, improving both speed and accuracy of form completion.
+**Action:** Always pair `label` tags with correctly scoped `autoComplete` values for common user data fields.
+
+**Learning:** Standard Bootstrap utility classes like `text-muted` often fail WCAG contrast requirements on custom dark themes (like #1E1E2E). Switching to high-contrast brand colors (e.g., `text-info` for cyan) ensures supplementary information remains readable for all users.
+**Action:** Audit "muted" or "secondary" text elements on dark backgrounds and replace with theme-consistent high-contrast alternatives.
