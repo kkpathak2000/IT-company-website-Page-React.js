@@ -409,6 +409,38 @@ body {
   background-color: #f8d7da;
   color: #721c24;
 }
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  background-color: #000000;
+  color: #8BE9FD;
+  padding: 8px 16px;
+  border: 2px solid #8BE9FD;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
+}
+
 /* CSS for BACK TO TOP */
 
 .back-to-top {
