@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2025-05-17 - Form Usability with Autocomplete
+**Learning:** For common form fields like Name and Email, providing `autoComplete` attributes is a high-impact micro-UX win that improves accessibility and significantly reduces friction by allowing browsers and password managers to assist the user.
+**Action:** Always include appropriate `autoComplete` attributes on standard form inputs to enhance usability.
