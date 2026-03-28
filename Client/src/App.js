@@ -11,10 +11,19 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
+      <a
+        href="#main-content"
+        className="visually-hidden-focusable bg-dark text-info p-2 m-2 border border-info"
+        style={{ zIndex: 1050, position: 'absolute', top: 0, left: 0 }}
+      >
+        Skip to main content
+      </a>
       <CustomNavbar />
-      <Home />
-      <Services />
-      <Contact />
+      <main id="main-content" tabIndex="-1">
+        <Home />
+        <Services />
+        <Contact />
+      </main>
       <Footer />
       <BackToTop />
     </div>
