@@ -11,6 +11,9 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
+      <a href="#home" className="skip-link">
+        Skip to main content
+      </a>
       <CustomNavbar />
       <Home />
       <Services />

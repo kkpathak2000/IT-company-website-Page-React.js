@@ -3,7 +3,7 @@ import homeImage from '../assets/home.png';
 
 const Home = () => {
   return (
-    <section id="home" className="home-section">
+    <section id="home" className="home-section" tabIndex="-1">
       <div className="home-image-container">
         <img src={homeImage} alt="home page" className="home-image" />
         <div className="home-text-overlay">

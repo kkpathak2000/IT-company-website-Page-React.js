@@ -16,6 +16,36 @@ html {
   background-color: #1E1E2E;
 }
 
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2000;
+  background-color: #8BE9FD;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: top 0.2s ease;
+}
+
+.skip-link:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.skip-link:focus {
+  outline: 3px solid #FF79C6;
+  outline-offset: 2px;
+  top: 70px; /* Position it below the navbar when visible */
+}
+
 body {
   background-color: #1E1E2E;
   color:#F8F8F2;
