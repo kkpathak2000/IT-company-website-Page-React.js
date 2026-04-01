@@ -57,7 +57,7 @@ const CustomNavbar = () => {
     <Navbar dark expand="md" className="custom-navbar" ref={navbarRef}>
       <NavbarBrand className="navbar-class" href="#home" onClick={(e) => handleScroll(e, '#home')}>
        <div className='navbar-logo-div'>
-        <img src={logo} alt="Company Logo" className="navbar-logo" />
+        <img src={logo} alt="IT Solutions Tech Logo" className="navbar-logo" />
        </div>
       </NavbarBrand>
       <Nav className= "nav-class" navbar>
