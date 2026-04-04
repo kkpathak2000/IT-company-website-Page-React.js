@@ -16,6 +16,43 @@ html {
   background-color: #1E1E2E;
 }
 
+#main-content:focus {
+  outline: none;
+}
+
+.visually-hidden-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  z-index: 1050;
+}
+
+.visually-hidden-focusable:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: #282A36;
+  color: #8BE9FD;
+  border: 2px solid #8BE9FD;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  outline: none;
+}
+
 body {
   background-color: #1E1E2E;
   color:#F8F8F2;
