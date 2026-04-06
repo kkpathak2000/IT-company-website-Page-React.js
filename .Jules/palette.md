@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2025-06-08 - Standard Accessibility Utilities over Custom CSS
+**Learning:** For critical accessibility features like "Skip to main content" links, leveraging framework-provided utility classes (e.g., Bootstrap's `.visually-hidden-focusable`) is superior to custom CSS. It ensures cross-browser consistency, adheres to the "no custom CSS" boundary, and keeps the code change footprint minimal (< 50 lines).
+**Action:** Always check the existing design system for built-in accessibility utilities before implementing custom hidden-but-focusable patterns.
