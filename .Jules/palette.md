@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2024-05-16 - Accessible Skip Links and Dark Theme Contrast
+**Learning:** Implementing a "Skip to main content" link is a high-impact micro-UX win for keyboard accessibility. While Bootstrap 5 provides `.visually-hidden-focusable`, custom styling is often necessary in dark themes to ensure the link is visually prominent when focused and doesn't get obscured by fixed headers. Using theme-consistent colors like Cyan (#8BE9FD) on a dark background ensures WCAG AAA contrast (15.17:1).
+**Action:** When adding skip links, ensure they are the first interactive element, target a `<main>` landmark with `tabIndex="-1"`, and have high-contrast focus styles that work with the site's layout (e.g., `position: fixed` to clear sticky navs).
