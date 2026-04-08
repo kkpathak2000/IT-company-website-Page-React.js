@@ -21,3 +21,7 @@
 ## 2025-06-07 - Semantic Footer and Navigation Accessibility
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
+
+## 2025-05-17 - Form Field Accessibility and Autocomplete
+**Learning:** Linking character counters to inputs using `aria-describedby` provides essential context to screen reader users about input constraints. Additionally, explicitly defining `autoComplete` attributes (like `name` and `email`) reduces cognitive load and improves accessibility for users with various impairments by allowing the browser to assist with data entry.
+**Action:** Always pair character counters with `aria-describedby` and provide relevant `autoComplete` values for common form fields.
