@@ -41,7 +41,7 @@ for pr in $prs; do
   
   # Checkout PR
   echo "  → Checking out PR..."
-  if ! gh pr checkout $pr 2>/dev/null; then
+  if ! gh pr checkout $pr > /dev/null 2>&1; then
     echo "  ✗ Failed to checkout PR #$pr"
     failed_count=$((failed_count+1))
     continue
@@ -49,16 +49,16 @@ for pr in $prs; do
   
   # Merge main
   echo "  → Merging main branch..."
-  if git merge origin/main --no-edit 2>/dev/null; then
+  if git merge origin/main --no-edit > /dev/null 2>&1; then
     echo "  ✓ No conflicts"
   else
     echo "  ⚠ Conflicts detected, auto-resolving..."
     # Take main version for all conflicts
-    git checkout --theirs . 2>/dev/null
-    git add . 2>/dev/null
-    if ! git commit --no-edit 2>/dev/null; then
+    git checkout --theirs . > /dev/null 2>&1
+    git add . > /dev/null 2>&1
+    if ! git commit --no-edit > /dev/null 2>&1; then
       echo "  ✗ Failed to resolve conflicts for PR #$pr"
-      git merge --abort 2>/dev/null
+      git merge --abort > /dev/null 2>&1
       failed_count=$((failed_count+1))
       continue
     fi
@@ -67,7 +67,7 @@ for pr in $prs; do
   
   # Push
   echo "  → Pushing changes..."
-  if ! git push -q 2>/dev/null; then
+  if ! git push > /dev/null 2>&1; then
     echo "  ✗ Failed to push changes for PR #$pr"
     failed_count=$((failed_count+1))
     continue
@@ -75,7 +75,7 @@ for pr in $prs; do
   
   # Merge PR
   echo "  → Merging PR into main..."
-  if gh pr merge $pr --merge -q 2>/dev/null; then
+  if gh pr merge $pr --merge > /dev/null 2>&1; then
     echo "  ✓ Successfully merged PR #$pr"
     merged_count=$((merged_count+1))
   else
@@ -89,11 +89,7 @@ done
 echo "======================================"
 echo "Summary"
 echo "======================================"
-echo "Total ProcessedElapsed: $total"
+echo "Total Processed: $total"
 echo "✓ Successfully merged: $merged_count"
 echo "✗ Failed: $failed_count"
 echo "======================================"
-
-if [ $merged_count -gt 0 ]; then
-  echo "All successful merges completed!"
-fi
