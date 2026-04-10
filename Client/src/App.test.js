@@ -1,7 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-jest.mock('./components/Contact', () => () => <div data-testid="contact-mock">Contact Component</div>);
+jest.mock('./components/Contact', () => () => <div data-testid="mock-contact" />);
+
+test('renders the skip to main content link', () => {
+  render(<App />);
+  const skipLink = screen.getByText(/Skip to main content/i);
+  expect(skipLink).toBeInTheDocument();
+  expect(skipLink).toHaveAttribute('href', '#main-content');
+});
 
 test('renders the Home navigation link', () => {
   render(<App />);

@@ -17,20 +17,27 @@ html {
 }
 
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
+  position: fixed;
+  top: -60px;
+  left: 10px;
+  background: #282A36;
   color: #8BE9FD;
-  padding: 8px;
+  padding: 8px 16px;
   z-index: 2000;
+  border: 2px solid #8BE9FD;
+  border-radius: 4px;
   transition: top 0.3s;
-  text-decoration: none;
 }
 
 .skip-link:focus {
-  top: 0;
-  outline: 2px solid #8BE9FD;
+  top: 10px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
+}
+
+#main-content:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
 body {
