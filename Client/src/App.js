@@ -11,15 +11,11 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
-      <a
-        href="#main-content"
-        className="visually-hidden-focusable btn btn-info position-fixed top-0 start-0 m-2"
-        style={{ zIndex: 1060 }}
-      >
+      <a href="#main-content" className="skip-link visually-hidden-focusable">
         Skip to main content
       </a>
       <CustomNavbar />
-      <main id="main-content" tabIndex="-1" style={{ outline: 'none' }}>
+      <main id="main-content" tabIndex="-1">
         <Home />
         <Services />
         <Contact />
