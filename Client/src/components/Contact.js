@@ -65,15 +65,15 @@ const Contact = () => {
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" />
-              <div className="text-end small text-info" aria-live="polite">
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" />
+              <div id="name-counter" className="text-end small text-info" aria-live="polite">
                 {formData.name.length}/100
               </div>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" />
-              <div className="text-end small text-info" aria-live="polite">
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" aria-describedby="email-counter" />
+              <div id="email-counter" className="text-end small text-info" aria-live="polite">
                 {formData.email.length}/100
               </div>
             </FormGroup>
@@ -89,8 +89,9 @@ const Contact = () => {
                 required
                 aria-required="true"
                 maxLength={500}
+                aria-describedby="message-counter"
               />
-              <div className="text-end small text-info" aria-live="polite">
+              <div id="message-counter" className="text-end small text-info" aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>
