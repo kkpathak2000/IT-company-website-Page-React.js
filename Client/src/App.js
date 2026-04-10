@@ -11,10 +11,16 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
+<<<<<<< HEAD
+      <a href="#main-content" className="skip-link visually-hidden-focusable">
+        Skip to main content
+      </a>
       <CustomNavbar />
-      <Home />
-      <Services />
-      <Contact />
+      <main id="main-content" tabIndex="-1">
+        <Home />
+        <Services />
+        <Contact />
+      </main>
       <Footer />
       <BackToTop />
     </div>
