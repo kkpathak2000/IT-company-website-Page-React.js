@@ -1,5 +1,5 @@
 #!/bin/bash
-set +e
+set -e
 
 # Get list of open PR numbers
 prs=$(gh pr list --json number --limit 100 | jq -r '.[].number')
@@ -25,9 +25,7 @@ for pr in $prs; do
   git push
   
   # Merge PR
-  if gh pr merge $pr --merge; then
-    echo "Merged PR #$pr"
-  else
-    echo "Failed to merge PR #$pr, skipping"
-  fi
+  gh pr merge $pr --merge
+  
+  echo "Merged PR #$pr"
 done
