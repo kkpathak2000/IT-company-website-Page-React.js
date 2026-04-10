@@ -54,7 +54,7 @@ const CustomNavbar = () => {
   }, []);
 
   return (
-    <Navbar dark expand="md" className="custom-navbar" ref={navbarRef}>
+    <Navbar dark expand="md" className="custom-navbar" ref={navbarRef} aria-label="Main Navigation">
       <NavbarBrand className="navbar-class" href="#home" onClick={(e) => handleScroll(e, '#home')}>
        <div className='navbar-logo-div'>
         <img src={logo} alt="IT Solutions Tech Logo" className="navbar-logo" />
