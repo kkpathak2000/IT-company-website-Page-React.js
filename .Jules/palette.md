@@ -22,6 +22,15 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
-## 2026-05-23 - Skip to Main Content and Focus Management
-**Learning:** A "Skip to Main Content" link is a critical accessibility feature for keyboard and screen reader users to bypass repetitive navigation. Using the "visually hidden" pattern (e.g., `clip-path`, `height: 1px`) allows the link to be hidden from sighted users while remaining focusable. When the target section is a non-interactive element (like `<section>`), adding `tabIndex="-1"` is essential to allow programmatic focus shifts and ensure compatibility with all browsers.
-**Action:** Always implement a skip link as the first focusable element in the DOM and ensure the target landmark has a proper ID and `tabIndex="-1"`.
+<<<<<<< HEAD
+## 2024-03-20 - Skip Link and Semantic Main
+**Learning:** For single-page applications with fixed navigation, a "Skip to main content" link is essential for keyboard accessibility. Using the `.visually-hidden-focusable` Bootstrap class allows the link to remain hidden until focused. Pairing this with a `<main id="main-content" tabIndex="-1">` wrapper ensures that the focus transition is smooth and compatible with all browsers/screen readers.
+**Action:** Always include a skip link as the first focusable element on the page and wrap the primary content in a correctly labeled `<main>` landmark.
+=======
+## 2025-06-10 - Dark Theme Contrast and Skip Links
+**Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
+**Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
+
+## 2025-06-08 - Keyboard Navigation and Fixed Headers
+**Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
+**Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.
