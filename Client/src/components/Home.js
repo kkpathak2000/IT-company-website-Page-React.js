@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <section id="home" className="home-section" tabIndex="-1">
       <div className="home-image-container">
-        <img src={homeImage} alt="home page" className="home-image" />
+        <img src={homeImage} alt="Modern IT workspace with professionals collaborating on software solutions" className="home-image" />
         <div className="home-text-overlay">
           <h1 className='home-heading'>Welcome to IT Solutions Tech</h1>
         </div>
