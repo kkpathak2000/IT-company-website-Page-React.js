@@ -1,0 +1,85 @@
+name: Auto-Merge Jules PRs
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if PR is from Jules
+        id: check-jules
+        run: |
+          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
+          if [ "$PR_AUTHOR" = "google-labs-jules" ]; then
+            echo "is_jules=true" >> $GITHUB_OUTPUT
+            echo "✓ PR from Jules detected"
+          else
+            echo "is_jules=false" >> $GITHUB_OUTPUT
+            echo "PR from: $PR_AUTHOR (not Jules, skipping)"
+          fi
+
+      - name: Setup Git
+        if: steps.check-jules.outputs.is_jules == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Fetch PR branch
+        if: steps.check-jules.outputs.is_jules == 'true'
+        run: |
+          git fetch origin pull/${{ github.event.pull_request.number }}/head:pr-branch
+          git checkout pr-branch
+
+      - name: Merge main branch
+        if: steps.check-jules.outputs.is_jules == 'true'
+        id: merge-main
+        continue-on-error: true
+        run: |
+          git fetch origin main
+          git merge origin/main --no-edit
+
+      - name: Resolve conflicts by taking main version
+        if: steps.check-jules.outputs.is_jules == 'true' && steps.merge-main.outcome == 'failure'
+        run: |
+          echo "Conflicts detected, resolving by taking main version..."
+          git checkout --theirs .
+          git add .
+          git commit -m "Auto-resolve conflicts: accept main branch version [skip ci]"
+
+      - name: Push resolved changes
+        if: steps.check-jules.outputs.is_jules == 'true'
+        run: |
+          git push origin pr-branch
+
+      - name: Merge PR
+        if: steps.check-jules.outputs.is_jules == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            try {
+              await github.rest.pulls.merge({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: context.issue.number,
+                merge_method: 'merge'
+              });
+              core.info('✓ PR merged successfully');
+            } catch (error) {
+              if (error.message.includes('Pull Request is not mergeable')) {
+                core.warning('PR not mergeable yet, will retry on next push');
+              } else {
+                core.setFailed('Failed to merge PR: ' + error.message);
+              }
+            }
