@@ -22,9 +22,15 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
-## 2025-06-08 - Skip Links and Test Resiliency
-**Learning:** A "Skip to main content" link is a critical accessibility requirement for keyboard users. Using high-contrast colors like Cyan (#8BE9FD) on Black (#000000) achieves a 15.17:1 ratio, meeting WCAG AAA standards. Pair this with a semantic `<main>` landmark with `tabIndex="-1"` to ensure consistent focus behavior across browsers.
-**Action:** Always include a skip link as the first focusable element in the main application entry point.
+<<<<<<< HEAD
+## 2024-03-20 - Skip Link and Semantic Main
+**Learning:** For single-page applications with fixed navigation, a "Skip to main content" link is essential for keyboard accessibility. Using the `.visually-hidden-focusable` Bootstrap class allows the link to remain hidden until focused. Pairing this with a `<main id="main-content" tabIndex="-1">` wrapper ensures that the focus transition is smooth and compatible with all browsers/screen readers.
+**Action:** Always include a skip link as the first focusable element on the page and wrap the primary content in a correctly labeled `<main>` landmark.
+=======
+## 2025-06-10 - Dark Theme Contrast and Skip Links
+**Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
+**Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
 
-**Learning:** ESM import issues in Jest (e.g., with `axios`) can be bypassed by mocking the component that uses the problematic dependency, ensuring the rest of the application's tests can run without environmental failures.
-**Action:** Use `jest.mock()` to isolate components with ESM or external environmental constraints during integration tests.
+## 2025-06-08 - Keyboard Navigation and Fixed Headers
+**Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
+**Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.
