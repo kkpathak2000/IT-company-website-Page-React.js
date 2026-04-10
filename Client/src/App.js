@@ -11,6 +11,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
+<<<<<<< HEAD
       <a href="#main-content" className="skip-link visually-hidden-focusable">
         Skip to main content
       </a>

@@ -22,6 +22,10 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
+## 2025-06-10 - Dark Theme Contrast and Skip Links
+**Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
+**Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
+
 ## 2025-06-08 - Keyboard Navigation and Fixed Headers
 **Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
 **Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.

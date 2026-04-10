@@ -35,6 +35,11 @@ html {
   box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
+#main-content:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
+}
+
 body {
   background-color: #1E1E2E;
   color:#F8F8F2;
