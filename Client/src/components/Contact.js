@@ -76,6 +76,7 @@ const Contact = () => {
                 aria-required="true"
                 aria-describedby="name-counter"
                 maxLength={100}
+                autoComplete="name"
               />
               <div id="name-counter" className="text-end small text-info" aria-live="polite">
                 {formData.name.length}/100
@@ -94,6 +95,7 @@ const Contact = () => {
                 aria-required="true"
                 aria-describedby="email-counter"
                 maxLength={100}
+                autoComplete="email"
               />
               <div id="email-counter" className="text-end small text-info" aria-live="polite">
                 {formData.email.length}/100
