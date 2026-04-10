@@ -1,4 +1,7 @@
 import { render, screen } from '@testing-library/react';
+
+jest.mock('./components/Contact', () => () => <div data-testid="contact-mock">Contact</div>);
+
 import App from './App';
 
 jest.mock('./components/Contact', () => () => <div data-testid="mock-contact" />);
