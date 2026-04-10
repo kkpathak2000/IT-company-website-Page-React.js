@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
+jest.mock('./components/Contact', () => () => <div data-testid="mock-contact" />);
+
 test('renders the skip to main content link', () => {
   render(<App />);
   const skipLink = screen.getByText(/Skip to main content/i);
