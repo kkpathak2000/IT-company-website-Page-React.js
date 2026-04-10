@@ -17,26 +17,27 @@ html {
 }
 
 .skip-link {
-  position: absolute;
+  position: fixed;
   top: -60px;
   left: 10px;
-  background: #FF79C6;
-  color: #fff;
+  background: #282A36;
+  color: #8BE9FD;
   padding: 8px 16px;
   z-index: 2000;
-  text-decoration: none;
+  border: 2px solid #8BE9FD;
   border-radius: 4px;
-  transition: top 0.2s ease;
+  transition: top 0.3s;
 }
 
 .skip-link:focus {
   top: 10px;
-  outline: 2px solid #8BE9FD;
-  outline-offset: 4px;
+  outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
 #main-content:focus {
   outline: none;
+  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
 body {

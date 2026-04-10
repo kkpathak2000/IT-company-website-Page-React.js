@@ -3,6 +3,13 @@ import App from './App';
 
 jest.mock('./components/Contact', () => () => <div data-testid="mock-contact" />);
 
+test('renders the skip to main content link', () => {
+  render(<App />);
+  const skipLink = screen.getByText(/Skip to main content/i);
+  expect(skipLink).toBeInTheDocument();
+  expect(skipLink).toHaveAttribute('href', '#main-content');
+});
+
 test('renders the Home navigation link', () => {
   render(<App />);
   const linkElement = screen.getByText(/Home/i);
@@ -20,11 +27,4 @@ test('renders the Footer with current year', () => {
   const currentYear = new Date().getFullYear().toString();
   const yearElement = screen.getByText(new RegExp(currentYear));
   expect(yearElement).toBeInTheDocument();
-});
-
-test('renders the Skip to main content link', () => {
-  render(<App />);
-  const skipLink = screen.getByText(/Skip to main content/i);
-  expect(skipLink).toBeInTheDocument();
-  expect(skipLink).toHaveAttribute('href', '#main-content');
 });

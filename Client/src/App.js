@@ -11,7 +11,7 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
-      <a href="#main-content" className="visually-hidden-focusable skip-link">
+      <a href="#main-content" className="skip-link visually-hidden-focusable">
         Skip to main content
       </a>
       <CustomNavbar />
