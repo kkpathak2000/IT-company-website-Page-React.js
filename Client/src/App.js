@@ -15,7 +15,7 @@ const App = () => {
         Skip to main content
       </a>
       <CustomNavbar />
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" tabIndex="-1">
         <Home />
         <Services />
         <Contact />
