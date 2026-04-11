@@ -39,3 +39,7 @@
 ## 2025-06-08 - Keyboard Navigation and Fixed Headers
 **Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
 **Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.
+
+## 2026-04-11 - CSS Consolidation and Maintenance
+**Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
+**Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
