@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="contact-section">
+    <section id="contact" className="contact-section" tabIndex="-1">
       <hr className="contact-hr" />
 
       <h2 className="contact-title">Reach out to us</h2>
@@ -62,7 +62,7 @@ const Contact = () => {
 
           <div className="separator"></div>
 
-          <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading}>
+          <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading} tabIndex="-1">
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" />

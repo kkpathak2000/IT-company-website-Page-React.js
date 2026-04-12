@@ -2,42 +2,26 @@ html {
   scroll-padding-top: 62px;
 }
 
-.skip-link {
-  position: absolute;
-  top: -60px;
-  left: 10px;
-  background: #282A36;
-  color: #8BE9FD;
-  padding: 8px 16px;
-  z-index: 2000;
-  transition: top 0.3s ease;
-  text-decoration: none;
-  border: 2px solid #8BE9FD;
-  border-radius: 4px;
-}
-
-.skip-link:focus {
-  top: 10px;
-  outline: none;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 }
 
-html {
-  scroll-padding-top: 62px;
-}
-
 .app {
   background-color: #1E1E2E;
 }
 
+body {
+  background-color: #1E1E2E;
+  color: #F8F8F2;
+  margin: 0;
+  padding: 0;
+}
+
 .skip-link {
   position: fixed;
-  top: -60px;
+  top: -100px;
   left: 10px;
   background: #282A36;
   color: #8BE9FD;
@@ -45,7 +29,9 @@ html {
   z-index: 2000;
   border: 2px solid #8BE9FD;
   border-radius: 4px;
-  transition: top 0.3s;
+  transition: top 0.3s ease;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .skip-link:focus {
@@ -56,65 +42,28 @@ html {
 
 #main-content:focus {
   outline: none;
-  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
-body {
-  background-color: #1E1E2E;
-  color:#F8F8F2;
-    margin: 0;
-    padding: 0;
-  }
+/* CSS for NAVBAR */
 
-/* Skip to content link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000000;
-  color: #8BE9FD;
-  padding: 8px;
-  z-index: 2000;
-  text-decoration: none;
-  font-weight: bold;
-  border: 1px solid #8BE9FD;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
+.custom-navbar {
+  background-color: #282A36;
+  position: fixed !important;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 2px;
   top: 0;
-  outline: none;
-  box-shadow: 0 0 0 2px #8BE9FD;
 }
 
-#main-content:focus {
-  outline: none;
+.navbar-logo {
+  height: 30px;
+  width: fit-content;
 }
 
+.navbar-dark .navbar-nav .nav-link {
+  color: #ffffff;
+}
 
-
-  /* CSS for NAVBAR */
-
-  .custom-navbar {
-    background-color: #282A36;
-    position:fixed !important;
-    width: 100%;
-    z-index: 1000;
-    border-radius: 2px;
-    top: 0;
-  }
-  
-  
-
-  .navbar-logo {
-    height: 30px; 
-    width:fit-content;
-  }
-
-  .navbar-dark .navbar-nav .nav-link {
-    color:#ffffff;
-  }
-  
 .navbar-dark .navbar-nav .nav-link {
   position: relative;
   transition: color 0.3s ease-in-out;
@@ -136,7 +85,7 @@ body {
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:focus-visible {
-    color: #FF79C6;
+  color: #FF79C6;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus-visible {
@@ -150,7 +99,7 @@ body {
 .navbar-dark .navbar-nav .nav-link:focus-visible::after {
   transform: scaleX(1);
   transform-origin: bottom left;
-  }
+}
 
 .navbar-dark .navbar-nav .nav-link.active {
   color: #FF79C6;
@@ -167,9 +116,8 @@ body {
   background-color: #FF79C6;
   transform-origin: bottom left;
 }
-  
 
-  /* Custom CSS for the HOME PAGE */
+/* Custom CSS for the HOME PAGE */
 
 .home-section {
   text-align: center;
@@ -187,7 +135,7 @@ body {
   width: 100%;
   height: auto;
   object-fit: cover;
-  opacity: 0.7; 
+  opacity: 0.7;
   position: relative;
 }
 
@@ -196,7 +144,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 100%;
   height: 100%;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.98), transparent);
   z-index: 1;
@@ -208,10 +156,10 @@ body {
   left: 26%;
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
-  font-size:larger; 
-  font-weight:bolder; 
+  font-size: larger;
+  font-weight: bolder;
   text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
-  z-index: 2; 
+  z-index: 2;
 }
 
 .home-description {
@@ -232,9 +180,8 @@ body {
   font-weight: 0 !important;
   margin-bottom: 10px;
 }
-  
 
-  /* CSS for CONTACT PAGE */
+/* CSS for CONTACT PAGE */
 
 .contact-section {
   text-align: center;
@@ -260,7 +207,7 @@ body {
 .contact-image-container {
   position: relative;
   width: 100%;
-  height: 400px; 
+  height: 400px;
 }
 
 .contact-image {
@@ -280,7 +227,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 30px 10%;
-  background: rgba(0, 0, 0, 0.7); 
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .contact-info {
@@ -339,7 +286,7 @@ body {
   transform: scale(0.95);
 }
 
-.contact-hr{
+.contact-hr {
   margin-top: 3rem;
   margin-bottom: 2rem;
   margin-left: 20%;
@@ -347,20 +294,20 @@ body {
   text-align: center;
 }
 
-
 /* CSS for FOOTER */
 
-  .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #282A36;
-    padding: 1rem;
-    gap: 20px;
-    color: #ffffff;
-  }
-  
-  .footer p, .footer nav {
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282A36;
+  padding: 1rem;
+  gap: 20px;
+  color: #ffffff;
+}
+
+.footer p,
+.footer nav {
   margin: 0;
   display: flex;
   align-items: center;
@@ -385,7 +332,6 @@ body {
 .separator {
   color: #8BE9FD;
 }
-
 
 /* CSS for SERVICES PAGE */
 
@@ -477,6 +423,7 @@ body {
   background-color: #f8d7da;
   color: #721c24;
 }
+
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
   position: absolute !important;
   width: 1px !important;
@@ -487,26 +434,6 @@ body {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-}
-
-.skip-link {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2000;
-  background-color: #000000;
-  color: #8BE9FD;
-  padding: 8px 16px;
-  border: 2px solid #8BE9FD;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.skip-link:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(139, 233, 253, 0.5);
 }
 
 /* CSS for BACK TO TOP */
@@ -530,25 +457,4 @@ body {
 
 .back-to-top svg {
   color: white;
-}
-
-/* Skip to content link */
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  background: #282A36;
-  color: #8BE9FD;
-  padding: 8px;
-  z-index: 2000;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-  outline: 2px solid #8BE9FD;
-}
-
-#main-content:focus {
-  outline: none;
 }
