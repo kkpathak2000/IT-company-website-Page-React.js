@@ -86,6 +86,12 @@ body {
   transform-origin: bottom left;
 }
 
+.navbar-brand:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 /* Custom CSS for the HOME PAGE */
 
 .home-section {
@@ -384,14 +390,15 @@ body {
 }
 
 .success {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: rgba(80, 250, 123, 0.1);
+  color: #50FA7B;
+  border: 1px solid #50FA7B;
 }
 
-
 .error {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: rgba(255, 85, 85, 0.1);
+  color: #FF5555;
+  border: 1px solid #FF5555;
 }
 
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
@@ -449,6 +456,11 @@ body {
 .back-to-top:hover {
   background-color: #BD93F9;
   transform: scale(1.1);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
 }
 
 .back-to-top svg {
