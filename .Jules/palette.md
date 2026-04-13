@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-05-22 - Dracula Theme Contrast and Icon-Redundant Feedback
+**Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
+**Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
