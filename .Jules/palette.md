@@ -27,11 +27,6 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
-<<<<<<< HEAD
-## 2024-03-20 - Skip Link and Semantic Main
-**Learning:** For single-page applications with fixed navigation, a "Skip to main content" link is essential for keyboard accessibility. Using the `.visually-hidden-focusable` Bootstrap class allows the link to remain hidden until focused. Pairing this with a `<main id="main-content" tabIndex="-1">` wrapper ensures that the focus transition is smooth and compatible with all browsers/screen readers.
-**Action:** Always include a skip link as the first focusable element on the page and wrap the primary content in a correctly labeled `<main>` landmark.
-=======
 ## 2025-06-10 - Dark Theme Contrast and Skip Links
 **Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
 **Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
@@ -40,6 +35,6 @@
 **Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
 **Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.
 
-## 2025-06-11 - Focus Management in SPA Navigation
-**Learning:** In SPAs with smooth-scrolling internal navigation, the visual viewport moves but keyboard focus remains on the trigger link, which is disorienting for screen reader users. Programmatically moving focus to the target section (which must have `tabIndex="-1"`) ensures a synchronized visual and keyboard experience.
-**Action:** Always call `.focus()` on the target element in internal navigation handlers and ensure the target is focusable.
+## 2026-04-11 - CSS Consolidation and Maintenance
+**Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
+**Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
