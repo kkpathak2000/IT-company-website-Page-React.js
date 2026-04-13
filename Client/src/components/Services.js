@@ -12,7 +12,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="services">
+    <section id="services" className="services" tabIndex="-1">
       <div className="services-header">
         <h2 className="services-header-text">Our Services</h2>
       </div>
