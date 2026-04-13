@@ -19,15 +19,21 @@ body {
   padding: 0;
 }
 
+/* CSS for NAVBAR */
 
-body {
-  background-color: #1E1E2E;
-  color:#F8F8F2;
-    margin: 0;
-    padding: 0;
-  }
+.custom-navbar {
+  background-color: #282A36;
+  position: fixed !important;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 2px;
+  top: 0;
+}
 
-
+.navbar-logo {
+  height: 30px;
+  width: fit-content;
+}
 
 .navbar-dark .navbar-nav .nav-link {
   color: #ffffff;
