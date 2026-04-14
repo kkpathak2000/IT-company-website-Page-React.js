@@ -57,8 +57,9 @@ body {
   color: #FF79C6;
 }
 
-.navbar-dark .navbar-nav .nav-link:focus-visible {
-  outline: 2px solid #FF79C6;
+.navbar-dark .navbar-nav .nav-link:focus-visible,
+.navbar-brand:focus-visible {
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -204,6 +205,21 @@ body {
   flex: 1;
   padding: 20px;
   border-radius: 10px;
+}
+
+.contact-info a {
+  color: #8BE9FD;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.contact-info a:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .contact-overlay .separator {
@@ -374,6 +390,22 @@ body {
   text-align: center;
   max-width: 70%;
   margin-left: 15%;
+}
+
+.services-footer a {
+  color: #8BE9FD;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.services-footer a:hover {
+  text-decoration: underline;
+}
+
+.services-footer a:focus-visible {
+  outline: 2px solid #8BE9FD;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 .response-message {
