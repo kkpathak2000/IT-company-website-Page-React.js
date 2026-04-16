@@ -55,12 +55,12 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
+            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info text-decoration-none">itsolutions@gmail.com</a></p>
+            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">ABC Street, Lucknow</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info text-decoration-none">+91-9876543210</a></p>
           </div>
 
-          <div className="separator"></div>
+          <div className="separator" aria-hidden="true"></div>
 
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading} tabIndex="-1">
             <FormGroup>
