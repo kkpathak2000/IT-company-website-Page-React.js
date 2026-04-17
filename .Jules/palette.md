@@ -1,3 +1,7 @@
+## 2026-04-12 - Actionable Contact Information and Selector Precision
+**Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
+**Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
+
 ## 2025-06-06 - Focus Visibility and Active Navigation
 **Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
 **Action:** Always check for `outline: none` in CSS and ensure a visible focus state exists for all interactive elements.
