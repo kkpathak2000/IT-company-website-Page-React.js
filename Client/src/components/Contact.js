@@ -55,9 +55,29 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
+            <p>
+              <strong>Email:</strong>{' '}
+              <a href="mailto:itsolutions@gmail.com" aria-label="Email IT Solutions Tech at itsolutions@gmail.com">
+                itsolutions@gmail.com
+              </a>
+            </p>
+            <p>
+              <strong>Address:</strong>{' '}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=ABC+Street+Lucknow"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View our address on Google Maps: ABC Street, Lucknow"
+              >
+                ABC Street, Lucknow
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{' '}
+              <a href="tel:+919876543210" aria-label="Call IT Solutions Tech at +91-9876543210">
+                +91-9876543210
+              </a>
+            </p>
           </div>
 
           <div className="separator"></div>
