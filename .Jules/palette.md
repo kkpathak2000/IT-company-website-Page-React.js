@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-04-12 - Actionable and Accessible Contact Information
+**Learning:** Static contact information (phone numbers, physical addresses) on landing pages creates friction. Converting them into actionable links (`tel:` for phone, Google Maps search for address) significantly improves mobile UX. Additionally, descriptive `aria-label` attributes (e.g., "View our address on Google Maps") and explicit `focus-visible` styles with high-contrast theme colors (like Dracula Cyan #8BE9FD) are essential for making these links accessible and discoverable for screen reader and keyboard users.
+**Action:** Always transform static contact data into actionable links. Provide descriptive ARIA labels and ensure high-contrast, theme-consistent focus indicators for all interactive elements.
