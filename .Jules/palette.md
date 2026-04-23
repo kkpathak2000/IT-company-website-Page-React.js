@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-04-12 - Aria-label and Text Masking
+**Learning:** Using `aria-label` on links that already have clear, descriptive text (like an email or physical address) completely replaces the link's content for screen reader users. This can lead to important information (the address itself) being hidden from assistive technology.
+**Action:** Let link text speak for itself. Use `title` for hover tooltips or `aria-describedby` for supplemental context, but avoid `aria-label` when the visible text is the primary information.

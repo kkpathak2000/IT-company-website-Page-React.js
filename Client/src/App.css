@@ -206,6 +206,23 @@ body {
   border-radius: 10px;
 }
 
+.contact-info a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover,
+.contact-info a:focus {
+  color: #FF79C6 !important;
+  text-decoration: underline;
+}
+
+.contact-info a:focus-visible {
+  outline: 2px solid #FF79C6;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .contact-overlay .separator {
   width: 2px;
   height: 150px;
