@@ -11,6 +11,16 @@ const services = [
 ];
 
 const Services = () => {
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href').slice(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.focus();
+    }
+  };
+
   return (
     <section id="services" className="services" tabIndex="-1">
       <div className="services-header">
@@ -42,7 +52,7 @@ const Services = () => {
           stakeholders, and staff.
         </p>
         <br />
-        <p>Ready to take your business to the next level? <a href="#form">Contact us today!</a></p>
+        <p>Ready to take your business to the next level? <a href="#contact" onClick={handleScroll} className="text-info">Contact us today!</a></p>
       </div>
     </section>
   );
