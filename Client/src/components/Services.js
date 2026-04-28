@@ -42,7 +42,7 @@ const Services = () => {
           stakeholders, and staff.
         </p>
         <br />
-        <p>Ready to take your business to the next level? <a href="#form">Contact us today!</a></p>
+        <p>Ready to take your business to the next level? <a href="#form" title="Navigate to the contact form">Contact us today!</a></p>
       </div>
     </section>
   );
