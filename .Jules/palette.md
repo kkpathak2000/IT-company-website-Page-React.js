@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-05-15 - Proactive Input Feedback
+**Learning:** Providing early visual feedback (e.g., color change) on character counters before a hard `maxLength` is reached reduces user frustration by signaling approaching limits. This makes the interface more predictable and avoids the jarring experience of input suddenly stopping.
+**Action:** Implement a warning state (e.g., Yellow/Warning color) for character counters at a 90% threshold.

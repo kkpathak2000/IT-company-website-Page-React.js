@@ -15,7 +15,11 @@ const Contact = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }; 
+  };
+
+  const getCounterClass = (length, limit) => {
+    return `text-end small ${length > limit * 0.9 ? 'text-warning' : 'text-info'}`;
+  };
 
   const handleSend = async (event) => {
     event.preventDefault();
@@ -55,25 +59,25 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
+            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" title="Send an email to IT Solutions Tech">itsolutions@gmail.com</a></p>
+            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" title="View our location on Google Maps">ABC Street, Lucknow</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919876543210" title="Call IT Solutions Tech support">+91-9876543210</a></p>
           </div>
 
-          <div className="separator"></div>
+          <div className="separator" aria-hidden="true"></div>
 
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading} tabIndex="-1">
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" />
-              <div id="name-counter" className="text-end small text-info" aria-live="polite">
+              <div id="name-counter" className={getCounterClass(formData.name.length, 100)} aria-live="polite">
                 {formData.name.length}/100
               </div>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" aria-describedby="email-counter" />
-              <div id="email-counter" className="text-end small text-info" aria-live="polite">
+              <div id="email-counter" className={getCounterClass(formData.email.length, 100)} aria-live="polite">
                 {formData.email.length}/100
               </div>
             </FormGroup>
@@ -91,7 +95,7 @@ const Contact = () => {
                 maxLength={500}
                 aria-describedby="message-counter"
               />
-              <div id="message-counter" className="text-end small text-info" aria-live="polite">
+              <div id="message-counter" className={getCounterClass(formData.message.length, 500)} aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>
