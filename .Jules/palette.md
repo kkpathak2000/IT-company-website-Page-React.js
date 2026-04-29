@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2025-06-12 - Actionable Contact Links and Theme Consistency
+**Learning:** Converting static contact information (phone, address) into actionable links (`tel:`, Google Maps) significantly reduces user friction, especially for mobile users. To maintain accessibility and theme consistency in a Dracula-themed UI, links should use high-contrast Cyan (#8BE9FD) for baseline visibility and Pink (#FF79C6) for interactive states (hover/focus), paired with explicit `focus-visible` outlines.
+**Action:** Always identify static contact details and convert them to appropriate actionable links. Use theme-specific high-contrast colors and ensure `focus-visible` states are explicitly styled to avoid reliance on default browser behavior.
