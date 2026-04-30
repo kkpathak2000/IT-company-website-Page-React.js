@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-04-12 - Actionable Contact Links and Accessibility
+**Learning:** Static contact information (Address, Phone) on landing pages represents a missed opportunity for micro-UX. Converting these to actionable links (`tel:` for phone, Google Maps for address) significantly reduces friction, especially for mobile users. To maintain accessibility, these links require descriptive `title` attributes and theme-consistent high-contrast styling to distinguish them from surrounding static text without relying solely on color.
+**Action:** Always convert static contact details into functional links. Use `tel:` for phone numbers and direct search URLs for addresses, ensuring they follow the design system's interactive highlight patterns.
