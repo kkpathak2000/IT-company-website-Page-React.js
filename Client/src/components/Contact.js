@@ -55,9 +55,15 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
+            <p>
+              <strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="contact-link" title="Send an email to IT Solutions Tech">itsolutions@gmail.com</a>
+            </p>
+            <p>
+              <strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" className="contact-link" target="_blank" rel="noopener noreferrer" title="View our location on Google Maps (opens in new tab)">ABC Street, Lucknow</a>
+            </p>
+            <p>
+              <strong>Phone:</strong> <a href="tel:+919876543210" className="contact-link" title="Call IT Solutions Tech">+91-9876543210</a>
+            </p>
           </div>
 
           <div className="separator"></div>
