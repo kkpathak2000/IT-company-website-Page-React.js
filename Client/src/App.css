@@ -20,14 +20,6 @@ body {
 }
 
 
-body {
-  background-color: #1E1E2E;
-  color:#F8F8F2;
-    margin: 0;
-    padding: 0;
-  }
-
-
 
 .navbar-dark .navbar-nav .nav-link {
   color: #ffffff;
@@ -204,6 +196,24 @@ body {
   flex: 1;
   padding: 20px;
   border-radius: 10px;
+}
+
+.contact-link {
+  color: #8BE9FD;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  color: #FF79C6;
+  text-decoration: underline;
+}
+
+.contact-link:focus-visible {
+  outline: 2px solid #FF79C6;
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .contact-overlay .separator {
