@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2025-06-11 - Proactive Input Feedback and Framework Utility Consistency
+**Learning:** For forms with character limits, a static counter provides info but lacks "urgency". A proactive color change (e.g., to Yellow) at 90% capacity creates a subtle but effective "approaching limit" warning. Using existing framework utility classes (like Bootstrap's `text-warning`) ensures design system consistency and avoids the maintenance overhead and CSS specificity issues of custom styles.
+**Action:** Implement conditional color-coding for character counters at the 90% threshold. Always prioritize framework-native utility classes over custom CSS for theme-standard feedback states.
