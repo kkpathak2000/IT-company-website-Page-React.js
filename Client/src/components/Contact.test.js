@@ -52,4 +52,22 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/100', { selector: '#email-counter' })).toHaveAttribute('aria-live', 'polite');
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
+
+  test('counter color changes to text-warning at 90% capacity', () => {
+    render(<Contact />);
+
+    const nameInput = screen.getByLabelText(/Name/i);
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(89) } });
+    expect(screen.getByText('89/100', { selector: '#name-counter' })).toHaveClass('text-info');
+
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
+    expect(screen.getByText('90/100', { selector: '#name-counter' })).toHaveClass('text-warning');
+
+    const messageInput = screen.getByLabelText(/Message/i);
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
+    expect(screen.getByText('449/500', { selector: '#message-counter' })).toHaveClass('text-info');
+
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
+    expect(screen.getByText('450/500', { selector: '#message-counter' })).toHaveClass('text-warning');
+  });
 });
