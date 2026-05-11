@@ -52,4 +52,22 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/100', { selector: '#email-counter' })).toHaveAttribute('aria-live', 'polite');
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
+
+  test('renders actionable contact links with correct attributes', () => {
+    render(<Contact />);
+
+    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveClass('text-info');
+
+    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
+    expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(addressLink).toHaveAttribute('target', '_blank');
+    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(addressLink).toHaveClass('text-info');
+
+    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
+    expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveClass('text-info');
+  });
 });
