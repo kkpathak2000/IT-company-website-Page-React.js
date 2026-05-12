@@ -52,4 +52,49 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/100', { selector: '#email-counter' })).toHaveAttribute('aria-live', 'polite');
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
+
+  test('contact links have correct attributes and styling', () => {
+    render(<Contact />);
+    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveClass('text-info');
+    expect(emailLink).toHaveAttribute('title', 'Send us an email');
+
+    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
+    expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(addressLink).toHaveAttribute('target', '_blank');
+    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(addressLink).toHaveClass('text-info');
+
+    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
+    expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveClass('text-info');
+  });
+
+  test('character counters change color at 90% threshold', () => {
+    render(<Contact />);
+    const nameInput = screen.getByLabelText(/Name/i);
+    const nameCounter = screen.getByText('0/100', { selector: '#name-counter' });
+
+    // 89 characters - should still be text-info
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(89) } });
+    expect(nameCounter).toHaveClass('text-info');
+    expect(nameCounter).not.toHaveClass('text-warning');
+
+    // 90 characters - should switch to text-warning
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
+    expect(nameCounter).toHaveClass('text-warning');
+    expect(nameCounter).not.toHaveClass('text-info');
+
+    const messageInput = screen.getByLabelText(/Message/i);
+    const messageCounter = screen.getByText('0/500', { selector: '#message-counter' });
+
+    // 449 characters - should still be text-info
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
+    expect(messageCounter).toHaveClass('text-info');
+
+    // 450 characters (90% of 500) - should switch to text-warning
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
+    expect(messageCounter).toHaveClass('text-warning');
+  });
 });
