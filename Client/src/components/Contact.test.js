@@ -52,4 +52,40 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/100', { selector: '#email-counter' })).toHaveAttribute('aria-live', 'polite');
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
+
+  test('counters change color when threshold is reached', () => {
+    render(<Contact />);
+    const nameInput = screen.getByLabelText(/Name/i);
+
+    // Below threshold
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(89) } });
+    const nameCounterBelow = screen.getByText('89/100', { selector: '#name-counter' });
+    expect(nameCounterBelow).toHaveClass('text-info');
+    expect(nameCounterBelow).not.toHaveClass('text-warning');
+
+    // At threshold
+    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
+    const nameCounterAt = screen.getByText('90/100', { selector: '#name-counter' });
+    expect(nameCounterAt).toHaveClass('text-warning');
+    expect(nameCounterAt).not.toHaveClass('text-info');
+
+    const emailInput = screen.getByLabelText(/Email/i);
+
+    // At threshold
+    fireEvent.change(emailInput, { target: { value: 'a'.repeat(90) } });
+    const emailCounterAt = screen.getByText('90/100', { selector: '#email-counter' });
+    expect(emailCounterAt).toHaveClass('text-warning');
+
+    const messageInput = screen.getByLabelText(/Message/i);
+
+    // Below threshold
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
+    const messageCounterBelow = screen.getByText('449/500', { selector: '#message-counter' });
+    expect(messageCounterBelow).toHaveClass('text-info');
+
+    // At threshold
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
+    const messageCounterAt = screen.getByText('450/500', { selector: '#message-counter' });
+    expect(messageCounterAt).toHaveClass('text-warning');
+  });
 });
