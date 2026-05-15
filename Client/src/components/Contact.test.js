@@ -52,4 +52,19 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/100', { selector: '#email-counter' })).toHaveAttribute('aria-live', 'polite');
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
+
+  test('character counters change to warning color at 90% capacity', () => {
+    render(<Contact />);
+    const messageInput = screen.getByLabelText(/Message/i);
+    const counter = screen.getByText('0/500', { selector: '#message-counter' });
+
+    // Threshold is 450 (90% of 500)
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
+    expect(counter).toHaveClass('text-info');
+    expect(counter).not.toHaveClass('text-warning');
+
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
+    expect(counter).toHaveClass('text-warning');
+    expect(counter).not.toHaveClass('text-info');
+  });
 });
