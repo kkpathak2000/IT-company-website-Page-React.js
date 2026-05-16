@@ -38,3 +38,7 @@
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
+
+## 2026-05-16 - Proactive Input Feedback and Actionable Contacts
+**Learning:** Providing visual warnings before a user hits a hard character limit (e.g., changing counter color at 90% capacity) reduces frustration and prevents "error-first" experiences. Additionally, converting static contact information into actionable protocols (tel, mailto, maps) significantly improves mobile UX and accessibility by reducing manual copying.
+**Action:** Implement conditional styling for character counters using high-contrast warning colors (like Bootstrap's `text-warning`). Always wrap phone numbers and addresses in semantic, protocol-specific links with descriptive titles.

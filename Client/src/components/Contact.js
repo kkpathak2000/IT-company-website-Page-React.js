@@ -55,9 +55,9 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> ABC Street, Lucknow</p>
-            <p><strong>Phone:</strong> +91-9876543210</p>
+            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" title="Send us an email" className="text-info">itsolutions@gmail.com</a></p>
+            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" title="View our location on Google Maps" className="text-info">ABC Street, Lucknow</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919876543210" title="Give us a call" className="text-info">+91-9876543210</a></p>
           </div>
 
           <div className="separator"></div>
@@ -66,14 +66,14 @@ const Contact = () => {
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" />
-              <div id="name-counter" className="text-end small text-info" aria-live="polite">
+              <div id="name-counter" className={`text-end small ${formData.name.length >= 90 ? 'text-warning' : 'text-info'}`} aria-live="polite">
                 {formData.name.length}/100
               </div>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
               <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" aria-describedby="email-counter" />
-              <div id="email-counter" className="text-end small text-info" aria-live="polite">
+              <div id="email-counter" className={`text-end small ${formData.email.length >= 90 ? 'text-warning' : 'text-info'}`} aria-live="polite">
                 {formData.email.length}/100
               </div>
             </FormGroup>
@@ -83,7 +83,7 @@ const Contact = () => {
                 type="textarea"
                 name="message"
                 id="message"
-                value={formData.message}
+                value={formData.message.slice(0, 500)}
                 onChange={handleChange}
                 placeholder="Your Message"
                 required
@@ -91,7 +91,7 @@ const Contact = () => {
                 maxLength={500}
                 aria-describedby="message-counter"
               />
-              <div id="message-counter" className="text-end small text-info" aria-live="polite">
+              <div id="message-counter" className={`text-end small ${formData.message.length >= 450 ? 'text-warning' : 'text-info'}`} aria-live="polite">
                 {formData.message.length}/500
               </div>
             </FormGroup>
