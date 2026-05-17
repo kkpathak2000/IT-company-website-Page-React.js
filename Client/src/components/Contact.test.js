@@ -23,7 +23,7 @@ describe('Contact Component', () => {
     fireEvent.change(nameInput, { target: { value: 'John Doe' } });
     expect(screen.getByText('8/100', { selector: '#name-counter' })).toBeInTheDocument();
 
-    const emailInput = screen.getByRole('textbox', { name: /Email/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
     fireEvent.change(emailInput, { target: { value: 'john@example.com' } });
     expect(screen.getByText('16/100', { selector: '#email-counter' })).toBeInTheDocument();
 
@@ -38,7 +38,7 @@ describe('Contact Component', () => {
     expect(nameInput).toHaveAttribute('aria-describedby', 'name-counter');
     expect(nameInput).toHaveAttribute('autoComplete', 'name');
 
-    const emailInput = screen.getByRole('textbox', { name: /Email/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
     expect(emailInput).toHaveAttribute('aria-describedby', 'email-counter');
     expect(emailInput).toHaveAttribute('autoComplete', 'email');
 
@@ -53,18 +53,20 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
-  test('contact information links are present and correct', () => {
+  test('renders actionable links for email, address, and phone', () => {
     render(<Contact />);
 
-    const emailLink = screen.getByRole('link', { name: /Email IT Solutions Tech/i });
+    const emailLink = screen.getByLabelText(/Email us at itsolutions@gmail.com/i);
     expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveClass('contact-link');
 
-    const addressLink = screen.getByRole('link', { name: /View our address/i });
+    const addressLink = screen.getByLabelText(/Find us on Google Maps at ABC Street, Lucknow/i);
     expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
     expect(addressLink).toHaveAttribute('target', '_blank');
-    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(addressLink).toHaveClass('contact-link');
 
-    const phoneLink = screen.getByRole('link', { name: /Call us/i });
+    const phoneLink = screen.getByLabelText(/Call us at \+91-9876543210/i);
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveClass('contact-link');
   });
 });

@@ -1,6 +1,6 @@
-## 2026-04-22 - Actionable Contact Information and Theme-Consistent Focus
-**Learning:** Static contact information (phone, address) on landing pages should be converted into actionable links (`tel:` for phone, Google Maps search for address) to reduce user friction, especially on mobile devices. Pair these links with descriptive `aria-label` attributes to provide screen reader users with the same context as sighted users (e.g., "Call us at..." vs just reading the number).
-**Action:** Always evaluate static contact strings for link conversion. Use Dracula Cyan (#8BE9FD) for links and Dracula Pink (#FF79C6) for focus states with a 2px outline to maintain theme consistency and WCAG compliance.
+## 2026-04-12 - Actionable Contact Information and Selector Precision
+**Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
+**Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
 
 ## 2025-06-06 - Focus Visibility and Active Navigation
 **Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
