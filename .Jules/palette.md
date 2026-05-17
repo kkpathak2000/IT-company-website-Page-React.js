@@ -43,6 +43,6 @@
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
 
-## 2026-05-20 - Actionable Contact Information
-**Learning:** Static contact information like addresses and phone numbers in a "Contact Us" section creates unnecessary friction, especially for mobile users. Converting these into actionable links (using `tel:` and Google Maps search URLs) provides a seamless "one-tap" experience. Additionally, using brand-consistent high-contrast utility classes (like `text-info`) ensures these interactive elements are discoverable and accessible on dark themes.
-**Action:** Audit contact sections for plain-text identifiers and wrap them in semantic links with appropriate protocols (`tel:`, `mailto:`, `https://www.google.com/maps/search/?api=1&query=...`).
+## 2026-05-14 - Proactive Input Feedback with Character Counters
+**Learning:** Hard limits (maxLength) on form inputs can be frustrating if the user isn't warned as they approach the limit. Changing the color of a character counter (e.g., from `text-info` to `text-warning`) at 90% capacity provides a subtle but effective "proactive feedback" cue that helps users adjust their input before being blocked.
+**Action:** Implement threshold-based color changes for character counters to signal proximity to maximum input lengths.
