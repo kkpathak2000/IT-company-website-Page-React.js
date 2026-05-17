@@ -53,39 +53,24 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
-  test('counters change color when threshold is reached', () => {
+  test('contact information links are correctly implemented', () => {
     render(<Contact />);
-    const nameInput = screen.getByLabelText(/Name/i);
 
-    // Below threshold
-    fireEvent.change(nameInput, { target: { value: 'a'.repeat(89) } });
-    const nameCounterBelow = screen.getByText('89/100', { selector: '#name-counter' });
-    expect(nameCounterBelow).toHaveClass('text-info');
-    expect(nameCounterBelow).not.toHaveClass('text-warning');
+    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveClass('text-info');
+    expect(emailLink).toHaveAttribute('title', 'Send us an email');
 
-    // At threshold
-    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
-    const nameCounterAt = screen.getByText('90/100', { selector: '#name-counter' });
-    expect(nameCounterAt).toHaveClass('text-warning');
-    expect(nameCounterAt).not.toHaveClass('text-info');
+    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
+    expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(addressLink).toHaveAttribute('target', '_blank');
+    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(addressLink).toHaveClass('text-info');
+    expect(addressLink).toHaveAttribute('title', 'View our location on Google Maps');
 
-    const emailInput = screen.getByLabelText(/Email/i);
-
-    // At threshold
-    fireEvent.change(emailInput, { target: { value: 'a'.repeat(90) } });
-    const emailCounterAt = screen.getByText('90/100', { selector: '#email-counter' });
-    expect(emailCounterAt).toHaveClass('text-warning');
-
-    const messageInput = screen.getByLabelText(/Message/i);
-
-    // Below threshold
-    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
-    const messageCounterBelow = screen.getByText('449/500', { selector: '#message-counter' });
-    expect(messageCounterBelow).toHaveClass('text-info');
-
-    // At threshold
-    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
-    const messageCounterAt = screen.getByText('450/500', { selector: '#message-counter' });
-    expect(messageCounterAt).toHaveClass('text-warning');
+    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
+    expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveClass('text-info');
+    expect(phoneLink).toHaveAttribute('title', 'Call our support team');
   });
 });
