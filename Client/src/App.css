@@ -207,7 +207,6 @@ body {
 .contact-info a:hover,
 .contact-info a:focus {
   color: #FF79C6 !important;
-  text-decoration: underline;
 }
 
 .contact-info a:focus-visible {
