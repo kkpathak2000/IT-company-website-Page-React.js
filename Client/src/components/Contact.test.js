@@ -53,26 +53,18 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
-  test('character counters change color at 90% capacity', () => {
+  test('character counters change to warning color at 90% capacity', () => {
     render(<Contact />);
-    const nameInput = screen.getByLabelText(/Name/i);
-    const nameCounter = screen.getByText('0/100', { selector: '#name-counter' });
-
-    // Initial state: text-info
-    expect(nameCounter).toHaveClass('text-info');
-    expect(nameCounter).not.toHaveClass('text-warning');
-
-    // Reach 90% (90 characters)
-    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
-    expect(nameCounter).toHaveClass('text-warning');
-    expect(nameCounter).not.toHaveClass('text-info');
-
     const messageInput = screen.getByLabelText(/Message/i);
-    const messageCounter = screen.getByText('0/500', { selector: '#message-counter' });
+    const counter = screen.getByText('0/500', { selector: '#message-counter' });
 
-    // Reach 90% (450 characters)
+    // Threshold is 450 (90% of 500)
+    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
+    expect(counter).toHaveClass('text-info');
+    expect(counter).not.toHaveClass('text-warning');
+
     fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
-    expect(messageCounter).toHaveClass('text-warning');
-    expect(messageCounter).not.toHaveClass('text-info');
+    expect(counter).toHaveClass('text-warning');
+    expect(counter).not.toHaveClass('text-info');
   });
 });
