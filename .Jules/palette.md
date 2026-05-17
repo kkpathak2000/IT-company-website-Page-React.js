@@ -1,6 +1,6 @@
-## 2026-02-14 - Actionable Contact Information and Visual Feedback
-**Learning:** Converting plain text contact information (Email, Address, Phone) into functional links significantly reduces user friction. Using `text-info` for these links on the Dracula theme ensures high contrast (15:1) while maintaining brand consistency. Additionally, implementing "Proactive Input Feedback" by changing counter colors at 90% capacity provides a clear visual cue that helps users manage input length before hitting hard limits.
-**Action:** Always prioritize converting contact details to actionable links (`mailto:`, `tel:`, map searches) and implement color-coded visual cues for character limits.
+## 2026-04-22 - Actionable Contact Information and Theme-Consistent Focus
+**Learning:** Static contact information (phone, address) on landing pages should be converted into actionable links (`tel:` for phone, Google Maps search for address) to reduce user friction, especially on mobile devices. Pair these links with descriptive `aria-label` attributes to provide screen reader users with the same context as sighted users (e.g., "Call us at..." vs just reading the number).
+**Action:** Always evaluate static contact strings for link conversion. Use Dracula Cyan (#8BE9FD) for links and Dracula Pink (#FF79C6) for focus states with a 2px outline to maintain theme consistency and WCAG compliance.
 
 ## 2025-06-06 - Focus Visibility and Active Navigation
 **Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
