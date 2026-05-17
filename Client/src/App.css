@@ -200,15 +200,15 @@ body {
 
 .contact-info a {
   color: #8BE9FD;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease-in-out, transform 0.2s ease;
+  display: inline-block;
 }
 
 .contact-info a:hover,
-.contact-info a:focus,
 .contact-info a:focus-visible {
-  color: #FF79C6;
-  text-decoration: underline;
+  color: #FF79C6 !important;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .contact-info a:focus-visible {
@@ -387,6 +387,24 @@ body {
   margin-left: 15%;
 }
 
+.services-footer a {
+  color: #8BE9FD;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.services-footer a:hover,
+.services-footer a:focus-visible {
+  color: #FF79C6 !important;
+  text-decoration: none;
+}
+
+.services-footer a:focus-visible {
+  outline: 2px solid #FF79C6;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .response-message {
   margin-top: 1rem;
   padding: 0.5rem;
@@ -403,6 +421,10 @@ body {
 .error {
   background-color: #f8d7da;
   color: #721c24;
+}
+
+.text-warning {
+  color: #F1FA8C !important;
 }
 
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
