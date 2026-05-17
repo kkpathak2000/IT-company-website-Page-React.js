@@ -43,6 +43,6 @@
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
 
-## 2026-04-25 - Programmatic Focus for Internal Navigation
-**Learning:** Relying on default browser behavior for internal anchor links (e.g., `<a href="#target">`) creates a "focus gap" where the viewport moves but the keyboard focus remains on the trigger link. This disorients screen reader users and requires extra tabbing for keyboard users. Bridging this gap requires intercepting the click and programmatically moving focus to the target element.
-**Action:** Always implement programmatic focus management for in-page navigation links. Ensure target elements have `tabIndex="-1"` to be programmatically focusable without being in the natural tab order.
+## 2026-04-12 - Aria-label and Text Masking
+**Learning:** Using `aria-label` on links that already have clear, descriptive text (like an email or physical address) completely replaces the link's content for screen reader users. This can lead to important information (the address itself) being hidden from assistive technology.
+**Action:** Let link text speak for itself. Use `title` for hover tooltips or `aria-describedby` for supplemental context, but avoid `aria-label` when the visible text is the primary information.
