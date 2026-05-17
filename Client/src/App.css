@@ -205,7 +205,7 @@ body {
 }
 
 .contact-info a:hover,
-.contact-info a:focus-visible {
+.contact-info a:focus {
   color: #FF79C6;
   text-decoration: underline;
 }
@@ -213,6 +213,7 @@ body {
 .contact-info a:focus-visible {
   outline: 2px solid #FF79C6;
   outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .contact-overlay .separator {
