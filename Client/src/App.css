@@ -375,8 +375,8 @@ body {
 }
 
 .service-card:hover {
-  transform: scale(1.05);
-  height: 380px;
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 10px 20px rgba(139, 233, 253, 0.2);
 }
 
 .card-image-container {
