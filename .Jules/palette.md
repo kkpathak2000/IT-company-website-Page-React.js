@@ -43,6 +43,6 @@
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
 
-## 2026-05-20 - Actionable Contact Info and Decorative Separators
-**Learning:** Static contact details (phone numbers, addresses) are a friction point for mobile users. Converting them into `tel:` and map search links significantly improves "tap-to-action" UX. Simultaneously, purely decorative separators (like vertical lines between contact info and forms) should be explicitly hidden from screen readers using `aria-hidden="true"` to ensure a clean semantic outline.
-**Action:** Always wrap phone numbers and physical addresses in appropriate action links. Audit layouts for decorative elements that lack `aria-hidden`.
+## 2026-04-15 - Mobile Responsiveness and Workspace Hygiene
+**Learning:** Default flexbox layouts (e.g., `flex-wrap: nowrap`) can break on mobile viewports if children have fixed widths, leading to horizontal scrolling or squished content. Applying `flex-wrap: wrap` and `justify-content: center` provides a robust, responsive fallback that maintains visual balance on small screens. Additionally, when working in repositories that track `node_modules` or generate test metadata, it is critical to verify the Git index before submission to avoid committing unintended artifacts like `.last-run.json`.
+**Action:** Always test flex containers on narrow viewports (e.g., 375px) to ensure proper wrapping. Use `git status` to audit staged changes for generated files or dependency pollution before creating a PR.
