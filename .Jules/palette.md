@@ -43,6 +43,6 @@
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
 
-## 2026-04-20 - Actionable Contact Links and Contrast
-**Learning:** Static contact information (phone, address) on landing pages should be converted into actionable links (`tel:` for phone, Google Maps search for address) to improve mobile UX. Using high-contrast classes like `text-info` (Dracula Cyan #8BE9FD) on dark backgrounds (#1E1E2E) ensures WCAG compliance while providing clear visual affordance.
-**Action:** Always wrap static contact details in semantic links with descriptive `title` attributes and brand-consistent high-contrast colors.
+## 2026-04-12 - [Accessible and Actionable Contact Links]
+**Learning:** Static contact information (phone, address) on landing pages should be converted into actionable links (`tel:`, maps) and wrapped in semantic `<address>` tags. This reduces user friction and provides programmatic context for assistive technologies. For Dracula-themed dark backgrounds (#1E1E2E), the `text-info` class (#8BE9FD) provides optimal WCAG-compliant contrast for these links.
+**Action:** Always wrap contact details in `<address>` and use semantic link protocols (`tel:`, Google Maps) with descriptive `title` attributes to ensure they are both discoverable and functional.
