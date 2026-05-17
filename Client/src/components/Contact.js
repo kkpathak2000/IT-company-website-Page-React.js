@@ -54,11 +54,32 @@ const Contact = () => {
         <img src={contactImage} alt="Contact Us" className="contact-image" />
 
         <div className="contact-overlay">
-          <address className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info" title="Send us an email">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info" title="View our location on Google Maps">ABC Street, Lucknow</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info" title="Call our support team">+91-9876543210</a></p>
-          </address>
+          <div className="contact-info">
+            <p>
+              <strong>Email:</strong>{' '}
+              <a href="mailto:itsolutions@gmail.com" className="text-info" title="Send an email to itsolutions@gmail.com">
+                itsolutions@gmail.com
+              </a>
+            </p>
+            <p>
+              <strong>Address:</strong>{' '}
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-info"
+                title="View our location on Google Maps"
+              >
+                ABC Street, Lucknow
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{' '}
+              <a href="tel:+919876543210" className="text-info" title="Call us at +91-9876543210">
+                +91-9876543210
+              </a>
+            </p>
+          </div>
 
           <div className="separator" aria-hidden="true"></div>
 
