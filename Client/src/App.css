@@ -200,15 +200,14 @@ body {
 
 .contact-info a {
   color: #8BE9FD;
-  transition: color 0.3s ease-in-out, transform 0.2s ease;
-  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .contact-info a:hover,
-.contact-info a:focus-visible {
+.contact-info a:focus {
   color: #FF79C6 !important;
-  text-decoration: none;
-  transform: translateY(-2px);
+  text-decoration: underline;
 }
 
 .contact-info a:focus-visible {
