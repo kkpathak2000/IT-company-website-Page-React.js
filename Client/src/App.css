@@ -213,7 +213,7 @@ body {
 .contact-link:focus-visible {
   outline: 2px solid #FF79C6;
   outline-offset: 4px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .contact-overlay .separator {
