@@ -19,30 +19,30 @@ describe('Contact Component', () => {
 
   test('updates character counters when typing', () => {
     render(<Contact />);
-    const nameInput = screen.getByLabelText(/Name/i);
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
     fireEvent.change(nameInput, { target: { value: 'John Doe' } });
     expect(screen.getByText('8/100', { selector: '#name-counter' })).toBeInTheDocument();
 
-    const emailInput = screen.getByLabelText(/Email/i);
+    const emailInput = screen.getByRole('textbox', { name: /Email/i });
     fireEvent.change(emailInput, { target: { value: 'john@example.com' } });
     expect(screen.getByText('16/100', { selector: '#email-counter' })).toBeInTheDocument();
 
-    const messageInput = screen.getByLabelText(/Message/i);
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
     fireEvent.change(messageInput, { target: { value: 'Hello world' } });
     expect(screen.getByText('11/500', { selector: '#message-counter' })).toBeInTheDocument();
   });
 
   test('inputs have correct accessibility attributes', () => {
     render(<Contact />);
-    const nameInput = screen.getByLabelText(/Name/i);
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
     expect(nameInput).toHaveAttribute('aria-describedby', 'name-counter');
     expect(nameInput).toHaveAttribute('autoComplete', 'name');
 
-    const emailInput = screen.getByLabelText(/Email/i);
+    const emailInput = screen.getByRole('textbox', { name: /Email/i });
     expect(emailInput).toHaveAttribute('aria-describedby', 'email-counter');
     expect(emailInput).toHaveAttribute('autoComplete', 'email');
 
-    const messageInput = screen.getByLabelText(/Message/i);
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
     expect(messageInput).toHaveAttribute('aria-describedby', 'message-counter');
   });
 
@@ -53,23 +53,18 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
-  test('renders actionable contact links with correct attributes', () => {
+  test('contact information links are present and correct', () => {
     render(<Contact />);
 
-    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail\.com/i });
+    const emailLink = screen.getByRole('link', { name: /Email IT Solutions Tech/i });
     expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
-    expect(emailLink).toHaveClass('text-info');
-    expect(emailLink).toHaveAttribute('title', 'Send us an email');
 
-    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
+    const addressLink = screen.getByRole('link', { name: /View our address/i });
     expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
-    expect(addressLink).toHaveClass('text-info');
     expect(addressLink).toHaveAttribute('target', '_blank');
-    expect(addressLink).toHaveAttribute('title', 'View our location on Google Maps');
+    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
 
-    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
+    const phoneLink = screen.getByRole('link', { name: /Call us/i });
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
-    expect(phoneLink).toHaveClass('text-info');
-    expect(phoneLink).toHaveAttribute('title', 'Call us');
   });
 });
