@@ -53,21 +53,22 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
-  test('counter color changes to text-warning at 90% capacity', () => {
+  test('renders actionable contact links with correct attributes', () => {
     render(<Contact />);
 
-    const nameInput = screen.getByLabelText(/Name/i);
-    fireEvent.change(nameInput, { target: { value: 'a'.repeat(89) } });
-    expect(screen.getByText('89/100', { selector: '#name-counter' })).toHaveClass('text-info');
+    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail\.com/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveClass('text-info');
+    expect(emailLink).toHaveAttribute('title', 'Send us an email');
 
-    fireEvent.change(nameInput, { target: { value: 'a'.repeat(90) } });
-    expect(screen.getByText('90/100', { selector: '#name-counter' })).toHaveClass('text-warning');
+    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
+    expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(addressLink).toHaveClass('text-info');
+    expect(addressLink).toHaveAttribute('target', '_blank');
+    expect(addressLink).toHaveAttribute('rel', 'noopener noreferrer');
 
-    const messageInput = screen.getByLabelText(/Message/i);
-    fireEvent.change(messageInput, { target: { value: 'a'.repeat(449) } });
-    expect(screen.getByText('449/500', { selector: '#message-counter' })).toHaveClass('text-info');
-
-    fireEvent.change(messageInput, { target: { value: 'a'.repeat(450) } });
-    expect(screen.getByText('450/500', { selector: '#message-counter' })).toHaveClass('text-warning');
+    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
+    expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveClass('text-info');
   });
 });
