@@ -11,10 +11,9 @@ const services = [
 ];
 
 const Services = () => {
-  const handleScroll = (e) => {
+  const handleScroll = (e, targetId) => {
     e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href').slice(1);
-    const targetElement = document.getElementById(targetId);
+    const targetElement = document.querySelector(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
       targetElement.focus();
@@ -52,7 +51,7 @@ const Services = () => {
           stakeholders, and staff.
         </p>
         <br />
-        <p>Ready to take your business to the next level? <a href="#contact" onClick={handleScroll} className="text-info">Contact us today!</a></p>
+        <p>Ready to take your business to the next level? <a href="#contact" onClick={(e) => handleScroll(e, '#contact')}>Contact us today!</a></p>
       </div>
     </section>
   );
