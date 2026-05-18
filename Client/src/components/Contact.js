@@ -59,9 +59,9 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info text-decoration-none">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">ABC Street, Lucknow</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info text-decoration-none">+91-9876543210</a></p>
+            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info text-decoration-none contact-link" aria-label="Email us at itsolutions@gmail.com" title="Email us at itsolutions@gmail.com">itsolutions@gmail.com</a></p>
+            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none contact-link" aria-label="Find us on Google Maps at ABC Street, Lucknow" title="Find us on Google Maps at ABC Street, Lucknow">ABC Street, Lucknow</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info text-decoration-none contact-link" aria-label="Call us at +91-9876543210" title="Call us at +91-9876543210">+91-9876543210</a></p>
           </div>
 
           <div className="separator" aria-hidden="true"></div>
@@ -106,7 +106,13 @@ const Contact = () => {
                   Sending...
                 </>
               ) : (
-                'Send Message'
+                <>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2" aria-hidden="true">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                  </svg>
+                  Send Message
+                </>
               )}
             </Button>
             {responseMessage && (
