@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { smoothScrollTo } from '../utils/smoothScroll';
 import cloudImage from '../assets/cloud.png';
 import supportImage from '../assets/it-support.png';
 import softwareImage from '../assets/software.png';
@@ -12,12 +13,7 @@ const services = [
 
 const Services = () => {
   const handleScroll = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-      targetElement.focus();
-    }
+    smoothScrollTo(e, targetId);
   };
 
   return (

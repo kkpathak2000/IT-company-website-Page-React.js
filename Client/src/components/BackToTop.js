@@ -17,7 +17,9 @@ const BackToTop = () => {
     }
   };
 
-  return isVisible && (
+  const shouldShowButton = isVisible;
+
+  return shouldShowButton && (
     <Button
       className="back-to-top position-fixed bottom-0 end-0 m-4 rounded-circle shadow"
       onClick={scrollToTop}
