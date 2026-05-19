@@ -55,7 +55,7 @@ const Contact = () => {
       </p>
 
       <div className="contact-image-container">
-        <img src={contactImage} alt="Contact Us" className="contact-image" />
+        <img src={contactImage} alt="Illustration of contacting support for IT solutions" className="contact-image" />
 
         <div className="contact-overlay">
           <div className="contact-info">
