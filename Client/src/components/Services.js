@@ -51,7 +51,7 @@ const Services = () => {
           stakeholders, and staff.
         </p>
         <br />
-        <p>Ready to take your business to the next level? <a href="#contact" onClick={(e) => handleScroll(e, '#contact')}>Contact us today!</a></p>
+        <p>Ready to take your business to the next level? <a href="#contact" onClick={(e) => handleScroll(e, '#contact')} aria-label="Contact us section">Contact us today!</a></p>
       </div>
     </section>
   );
