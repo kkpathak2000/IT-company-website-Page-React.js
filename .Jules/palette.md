@@ -50,3 +50,7 @@
 ## 2026-05-22 - Dracula Theme Contrast and Icon-Redundant Feedback
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
+
+## 2024-05-13 - [Visual Stability and Focus Affordance]
+**Learning:** Modifying layout-inducing properties like `height` on `:hover` causes layout jank by shifting surrounding elements. Additionally, container-level hover effects often neglect keyboard users if not paired with `:focus-within`.
+**Action:** Prioritize non-layout properties like `transform: scale()` for interactive animations and always include `:focus-within` to ensure parity for keyboard navigation.
