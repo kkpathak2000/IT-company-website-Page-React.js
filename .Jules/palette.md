@@ -50,3 +50,7 @@
 ## 2026-05-22 - Dracula Theme Contrast and Icon-Redundant Feedback
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
+
+## 2026-05-25 - Precision in Accessibility Labels and Test Compliance
+**Learning:** Adding descriptive `aria-label` attributes to actionable contact links (Email, Address, Phone) significantly improves screen reader navigation by providing intent-based context (e.g., "Email us at..." vs just the email address). Furthermore, in this repository, the `Contact.test.js` suite enforces accessibility by explicitly searching for these descriptive labels, making them both a UX best practice and a requirement for test compliance.
+**Action:** Always provide descriptive `aria-label` attributes for contact links and ensure they match the expected patterns in existing test suites to prevent regressions.
