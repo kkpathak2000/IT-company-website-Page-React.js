@@ -1,3 +1,7 @@
+## 2026-05-23 - Strict Accessibility Testing and Visual Affordance
+**Learning:** Automated tests in this repository (specifically `Contact.test.js`) enforce accessibility patterns by asserting the presence of specific `aria-label` strings and CSS classes (`.contact-link`) on actionable items. Failure to include these results in build breakages. Additionally, adding simple visual affordances like a paper-plane icon to "Send" buttons enhances intuitive interaction.
+**Action:** Always check unit tests for specific ARIA and class requirements before modifying UI components. Complement descriptive labels with visual icons to provide redundant feedback for primary actions.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
