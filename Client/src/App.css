@@ -371,12 +371,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
-.service-card:hover {
-  transform: scale(1.05);
-  height: 380px;
+.service-card:hover,
+.service-card:focus-within,
+.service-card:focus-visible {
+  transform: scale(1.05) translateY(-10px);
+  outline: none;
+}
+
+.service-card:focus-visible {
+  box-shadow: 0 0 0 3px #8BE9FD;
 }
 
 .card-image-container {
