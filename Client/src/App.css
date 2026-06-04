@@ -320,6 +320,7 @@ body {
 }
 
 .footer a:hover {
+  color: #8BE9FD;
   text-decoration: underline;
 }
 
@@ -371,12 +372,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.service-card:hover {
+.service-card:hover,
+.service-card:focus-within {
   transform: scale(1.05);
-  height: 380px;
+  box-shadow: 0 8px 24px rgba(139, 233, 253, 0.2);
+  outline: none;
 }
 
 .card-image-container {
