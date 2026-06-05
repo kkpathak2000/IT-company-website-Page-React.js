@@ -31,6 +31,10 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
+## 2026-05-23 - Visual Affordance and Redundant Iconography
+**Learning:** For primary call-to-action buttons (like "Send Message"), text alone can sometimes be missed in dense layouts. Adding a relevant SVG icon (e.g., a paper plane) provides immediate visual affordance and a secondary cue for the action, making the interface feel more intuitive and "finished."
+**Action:** Pair primary form actions with relevant icons to enhance visual feedback and affordance.
+
 ## 2025-06-10 - Dark Theme Contrast and Skip Links
 **Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
 **Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
