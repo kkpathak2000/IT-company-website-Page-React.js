@@ -43,6 +43,10 @@
 **Learning:** Visual smooth scrolling via anchor links doesn't update the accessibility tree's focus point. Keyboard users remain at the source link while the view moves away. Programmatically moving focus to the target (using `tabIndex="-1"`) after the scroll event is crucial for a cohesive assistive technology experience. Additionally, using high-contrast colors like Dracula Cyan (#8BE9FD) for links against dark backgrounds ensures WCAG compliance and clear interactive affordance.
 **Action:** Always pair internal anchor navigation with programmatic `.focus()` calls to the target section. Use theme-consistent, high-contrast colors for links to maintain accessibility and brand identity.
 
+## 2026-06-12 - Layout Stability and Visual Affordance in Dracula Theme
+**Learning:** Modifying layout-inducing properties like `height` or `margin` on hover triggers browser reflows, causing "layout jank" that degrades UX. Using hardware-accelerated `transform: scale()` provides a smooth, stable alternative. Additionally, when using dark themes like Dracula (#1E1E2E), interactive elements must maintain high contrast (e.g., Cyan #8BE9FD) and include both visual (icons) and programmatic (ARIA labels) cues to ensure accessibility for all users, including those using screen readers or navigating via keyboard.
+**Action:** Prioritize `transform` over layout properties for animations. Always pair icons with descriptive `aria-label` attributes for actionable links and ensure decorative icons are hidden via `aria-hidden="true"`.
+
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
