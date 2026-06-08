@@ -1,3 +1,7 @@
+## 2026-06-08 - Visual Stability and Keyboard Affordance
+**Learning:** Modifying layout-inducing properties like `height` on `:hover` causes layout "jank" by shifting surrounding elements. Using `min-height` for baseline alignment and hardware-accelerated `transform: scale()` preserves stability. Additionally, ensuring that scaling effects are applied via `:focus-within` (not just `:hover`) provides critical visual affordance for keyboard users.
+**Action:** Prioritize `min-height` and `transform` for animations to avoid layout shifts. Always pair `:hover` scaling effects with `:focus-within` for accessible feedback.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
