@@ -39,6 +39,10 @@
 **Learning:** Fixed navigation bars often obscure the primary content when users navigate via keyboard tabs or internal anchors. A "Skip to main content" link is a critical micro-UX/a11y improvement that must be the first focusable element. It requires high `z-index` to appear over fixed elements and `tabIndex="-1"` on the target landmark to ensure cross-browser focus consistency.
 **Action:** Implement skip links in apps with fixed headers. Always use `tabIndex="-1"` on the destination landmark.
 
+## 2026-06-09 - Layout Stability and Non-Jank Transitions
+**Learning:** Modifying layout-inducing properties like `height` or `margin` on `:hover` or `:focus` triggers browser layout recalculations, causing "jank" and shifting surrounding content, which negatively impacts Cumulative Layout Shift (CLS).
+**Action:** Prioritize stable dimensions (e.g., `min-height`) and use hardware-accelerated properties like `transform` or `opacity` for interactive animations to maintain visual stability.
+
 ## 2026-04-14 - Programmatic Focus and Contrast for Internal Navigation
 **Learning:** Visual smooth scrolling via anchor links doesn't update the accessibility tree's focus point. Keyboard users remain at the source link while the view moves away. Programmatically moving focus to the target (using `tabIndex="-1"`) after the scroll event is crucial for a cohesive assistive technology experience. Additionally, using high-contrast colors like Dracula Cyan (#8BE9FD) for links against dark backgrounds ensures WCAG compliance and clear interactive affordance.
 **Action:** Always pair internal anchor navigation with programmatic `.focus()` calls to the target section. Use theme-consistent, high-contrast colors for links to maintain accessibility and brand identity.
