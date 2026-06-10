@@ -50,3 +50,7 @@
 ## 2026-05-22 - Dracula Theme Contrast and Icon-Redundant Feedback
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
+
+## 2026-06-15 - Layout Stability and Keyboard Focus Feedback
+**Learning:** Using layout-inducing properties like `height` or `margin` for hover effects causes "Cumulative Layout Shift" (CLS), which feels jarring and unprofessional. Replacing fixed heights with `min-height` and using CSS `transform: scale()` preserves layout stability. Furthermore, interactive scaling effects on cards should always include `:focus-within` to ensure keyboard users receive the same visual feedback as mouse users.
+**Action:** Avoid animating `height` or `width` for interactive effects; use `transform` instead. Always pair `:hover` scaling with `:focus-within` for container elements.
