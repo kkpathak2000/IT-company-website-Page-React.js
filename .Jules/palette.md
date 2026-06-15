@@ -1,3 +1,7 @@
+## 2026-06-15 - Layout Stability and Interaction Feedback
+**Learning:** Using fixed `height` in CSS transitions (especially on `:hover`) causes Cumulative Layout Shift (CLS) by forcing neighboring elements to reflow as the box model updates. Transitioning `min-height` or using `transform: scale()` is more stable. Additionally, applying interactive effects (like scaling) to container elements must use `:focus-within` to ensure keyboard users receive the same visual affordance as mouse users.
+**Action:** Avoid fixed `height` for containers that change size; prioritize `min-height` or hardware-accelerated `transform`. Always pair `:hover` with `:focus-within` for interactive container feedback.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
