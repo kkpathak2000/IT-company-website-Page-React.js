@@ -1,3 +1,7 @@
+## 2025-06-11 - Layout Shift Prevention and Keyboard-Visual Parity
+**Learning:** Using fixed `height` on containers with interactive transitions can cause Cumulative Layout Shift (CLS) or clipping if content changes. Switching to `min-height` provides a stable baseline while allowing for flexibility. Additionally, CSS scaling effects (e.g., `transform: scale(1.05)`) applied only to `:hover` create a "dead end" for keyboard users.
+**Action:** Use `min-height` for interactive cards to prevent layout jank. Always pair `:hover` scaling with `:focus-within` to ensure keyboard users receive the same visual affordance as mouse users.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
