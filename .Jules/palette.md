@@ -2,6 +2,10 @@
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
 
+## 2026-05-23 - Cumulative Layout Shift (CLS) Prevention and Keyboard Parity
+**Learning:** Animating the `height` of container elements on hover/focus (e.g., card expansion) causes layout jank by shifting surrounding content. Using a stable `min-height` and focusing on non-layout-inducing transitions like `transform: scale()` preserves visual stability. Furthermore, interactive scaling must always include the `:focus-within` pseudo-class to ensure keyboard users receive identical visual affordance as mouse users.
+**Action:** Prioritize `min-height` over fixed `height` for grid items. Always pair `:hover` scaling effects with `:focus-within`.
+
 ## 2025-06-06 - Focus Visibility and Active Navigation
 **Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
 **Action:** Always check for `outline: none` in CSS and ensure a visible focus state exists for all interactive elements.
