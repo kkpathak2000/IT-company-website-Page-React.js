@@ -59,9 +59,27 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info text-decoration-none">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">ABC Street, Lucknow</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info text-decoration-none">+91-9876543210</a></p>
+            <p className="d-flex align-items-center">
+              <strong className="me-2">Email:</strong>
+              <a href="mailto:itsolutions@gmail.com" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Email us at itsolutions@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                itsolutions@gmail.com
+              </a>
+            </p>
+            <p className="d-flex align-items-center">
+              <strong className="me-2">Address:</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Find us on Google Maps at ABC Street, Lucknow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2" aria-hidden="true" focusable="false"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                ABC Street, Lucknow
+              </a>
+            </p>
+            <p className="d-flex align-items-center">
+              <strong className="me-2">Phone:</strong>
+              <a href="tel:+919876543210" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Call us at +91-9876543210">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                +91-9876543210
+              </a>
+            </p>
           </div>
 
           <div className="separator" aria-hidden="true"></div>
@@ -99,14 +117,17 @@ const Contact = () => {
                 {formData.message.length}/500
               </div>
             </FormGroup>
-            <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading}>
+            <Button color='light' size="sm" type="submit" disabled={isLoading} aria-busy={isLoading} className="d-inline-flex align-items-center">
               {isLoading ? (
                 <>
                   <Spinner size="sm" className="me-2" />
                   Sending...
                 </>
               ) : (
-                'Send Message'
+                <>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2" aria-hidden="true" focusable="false"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  Send Message
+                </>
               )}
             </Button>
             {responseMessage && (
