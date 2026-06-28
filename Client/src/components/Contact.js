@@ -59,9 +59,27 @@ const Contact = () => {
 
         <div className="contact-overlay">
           <div className="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:itsolutions@gmail.com" className="text-info text-decoration-none">itsolutions@gmail.com</a></p>
-            <p><strong>Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="text-info text-decoration-none">ABC Street, Lucknow</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+919876543210" className="text-info text-decoration-none">+91-9876543210</a></p>
+            <p>
+              <strong>Email:</strong>{' '}
+              <a href="mailto:itsolutions@gmail.com" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Email us at itsolutions@gmail.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2 text-info" aria-hidden="true" focusable="false"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></svg>
+                itsolutions@gmail.com
+              </a>
+            </p>
+            <p>
+              <strong>Address:</strong>{' '}
+              <a href="https://www.google.com/maps/search/?api=1&query=ABC+Street,+Lucknow" target="_blank" rel="noopener noreferrer" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Find us on Google Maps at ABC Street, Lucknow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2 text-info" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg>
+                ABC Street, Lucknow
+              </a>
+            </p>
+            <p>
+              <strong>Phone:</strong>{' '}
+              <a href="tel:+919876543210" className="contact-link text-info text-decoration-none d-inline-flex align-items-center" aria-label="Call us at +91-9876543210">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="me-2 text-info" aria-hidden="true" focusable="false"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></svg>
+                +91-9876543210
+              </a>
+            </p>
           </div>
 
           <div className="separator" aria-hidden="true"></div>
