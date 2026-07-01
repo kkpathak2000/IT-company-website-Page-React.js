@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import logo from '../assets/logo.png';
+import React, { useState, useEffect, useRef } from "react";
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import logo from "../assets/logo.png";
 
 const debounce = (func, delay) => {
   let timeout;
@@ -11,14 +11,14 @@ const debounce = (func, delay) => {
 };
 
 const CustomNavbar = () => {
-  const [activeLink, setActiveLink] = useState('#home');
+  const [activeLink, setActiveLink] = useState("#home");
   const navbarRef = useRef(null);
 
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      targetElement.scrollIntoView({ behavior: "smooth" });
       targetElement.focus();
       setActiveLink(targetId);
     }
@@ -26,17 +26,22 @@ const CustomNavbar = () => {
 
   useEffect(() => {
     const handleScrollEvent = () => {
-      const sections = document.querySelectorAll('section[id]');
-      const navbarHeight = navbarRef.current ? navbarRef.current.offsetHeight : 0;
+      const sections = document.querySelectorAll("section[id]");
+      const navbarHeight = navbarRef.current
+        ? navbarRef.current.offsetHeight
+        : 0;
       const scrollPosition = window.scrollY + navbarHeight;
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
           const newActiveLink = `#${section.id}`;
-          setActiveLink(currentActiveLink => {
+          setActiveLink((currentActiveLink) => {
             if (newActiveLink !== currentActiveLink) {
               return newActiveLink;
             }
@@ -48,26 +53,40 @@ const CustomNavbar = () => {
 
     const debouncedScrollHandler = debounce(handleScrollEvent, 100);
 
-    window.addEventListener('scroll', debouncedScrollHandler);
+    window.addEventListener("scroll", debouncedScrollHandler);
     return () => {
-      window.removeEventListener('scroll', debouncedScrollHandler);
+      window.removeEventListener("scroll", debouncedScrollHandler);
     };
   }, []);
 
   return (
-    <Navbar dark expand="md" className="custom-navbar" ref={navbarRef} aria-label="Main Navigation">
-      <NavbarBrand className="navbar-class" href="#home" onClick={(e) => handleScroll(e, '#home')}>
-       <div className='navbar-logo-div'>
-        <img src={logo} alt="IT Solutions Tech Logo" className="navbar-logo" />
-       </div>
+    <Navbar
+      dark
+      expand="md"
+      className="custom-navbar"
+      ref={navbarRef}
+      aria-label="Main Navigation"
+    >
+      <NavbarBrand
+        className="navbar-class"
+        href="#home"
+        onClick={(e) => handleScroll(e, "#home")}
+      >
+        <div className="navbar-logo-div">
+          <img
+            src={logo}
+            alt="IT Solutions Tech Logo"
+            className="navbar-logo"
+          />
+        </div>
       </NavbarBrand>
-      <Nav className= "nav-class" navbar>
+      <Nav className="nav-class" navbar>
         <NavItem>
           <NavLink
             href="#home"
-            className={activeLink === '#home' ? 'active' : ''}
-            aria-current={activeLink === '#home' ? 'page' : undefined}
-            onClick={(e) => handleScroll(e, '#home')}
+            className={activeLink === "#home" ? "active" : ""}
+            aria-current={activeLink === "#home" ? "page" : undefined}
+            onClick={(e) => handleScroll(e, "#home")}
           >
             Home
           </NavLink>
@@ -75,9 +94,9 @@ const CustomNavbar = () => {
         <NavItem>
           <NavLink
             href="#services"
-            className={activeLink === '#services' ? 'active' : ''}
-            aria-current={activeLink === '#services' ? 'page' : undefined}
-            onClick={(e) => handleScroll(e, '#services')}
+            className={activeLink === "#services" ? "active" : ""}
+            aria-current={activeLink === "#services" ? "page" : undefined}
+            onClick={(e) => handleScroll(e, "#services")}
           >
             Our Services
           </NavLink>
@@ -85,9 +104,9 @@ const CustomNavbar = () => {
         <NavItem>
           <NavLink
             href="#contact"
-            className={activeLink === '#contact' ? 'active' : ''}
-            aria-current={activeLink === '#contact' ? 'page' : undefined}
-            onClick={(e) => handleScroll(e, '#contact')}
+            className={activeLink === "#contact" ? "active" : ""}
+            aria-current={activeLink === "#contact" ? "page" : undefined}
+            onClick={(e) => handleScroll(e, "#contact")}
           >
             Contact Us
           </NavLink>
