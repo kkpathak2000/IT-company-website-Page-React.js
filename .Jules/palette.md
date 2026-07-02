@@ -1,3 +1,7 @@
+## 2026-07-02 - Layout Stability and Integrated Asset Resilience
+**Learning:** Animating layout-inducing properties like `height` on hover or focus triggers Cumulative Layout Shift (CLS), which degrades user experience and performance. Using `transform` with a stable `min-height` provides a smooth, hardware-accelerated alternative. Additionally, embedding critical UI icons as inline SVGs instead of external assets (like FontAwesome or images) prevents "Flash of Unstyled Icon" and ensures accessibility attributes are preserved directly on the element.
+**Action:** Always prefer `transform` for interactive scaling effects. Use inline SVGs for micro-UI icons to guarantee immediate availability and accessible labeling.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
