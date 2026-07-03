@@ -1,3 +1,7 @@
+## 2026-07-03 - [CLS Prevention and Contact Accessibility]
+**Learning:** Micro-interactions that change an element's dimensions (e.g., `height` on hover) cause Cumulative Layout Shift (CLS), which is jarring and can negatively impact SEO and usability. Using `transform: scale()` or fixed dimensions with `min-height` provides a stable layout. Additionally, contact links must maintain specific CSS classes (`.contact-link`) and ARIA labels to satisfy both automated accessibility tests and real-world screen reader usability.
+**Action:** Use fixed heights or CSS transforms for hover effects to prevent layout shifts. Ensure all interactive links in contact sections include descriptive ARIA labels and consistent styling classes.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
