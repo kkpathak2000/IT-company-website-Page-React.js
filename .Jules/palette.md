@@ -1,3 +1,7 @@
+## 2026-07-05 - Maintaining Accessibility and Visual Affordance during Refactoring
+**Learning:** During component refactoring or styling updates, it's easy to inadvertently strip away classes (like `.contact-link`) or ARIA labels that are critical for both visual consistency and automated accessibility tests. Pairing actionable links with descriptive `aria-label` attributes and inline SVG icons (with `focusable="false" aria-hidden="true"`) enhances the experience for both screen-reader and sighted users while ensuring test suites remain robust.
+**Action:** Always verify that regression-sensitive classes and ARIA attributes are preserved during UI updates. Use decorative SVG icons to provide visual cues without cluttering the accessibility tree.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
