@@ -1,18 +1,27 @@
-import React from 'react';
-import homeImage from '../assets/home.png';
+import React from "react";
+import homeImage from "../assets/home.png";
 
 const Home = () => {
   return (
     <section id="home" className="home-section" tabIndex="-1">
       <div className="home-image-container">
-        <img src={homeImage} alt="Modern IT workspace with professionals collaborating on software solutions" className="home-image" />
+        <img
+          src={homeImage}
+          alt="Modern IT workspace with professionals collaborating on software solutions"
+          className="home-image"
+        />
         <div className="home-text-overlay">
-          <h1 className='home-heading'>Welcome to IT Solutions Tech</h1>
+          <h1 className="home-heading">Welcome to IT Solutions Tech</h1>
         </div>
       </div>
 
       <p className="home-description">
-      IT Solutions Software is a comprehensive solution designed to streamline software operations with 15+ intelligent modules, covering everything from software enrollment and software tracking to software management and software reporting. It also features an integrated Auto SMS Responder, ensuring seamless communication between stakeholders, admin, and staff by sending instant updates, reminders, and notifications.
+        IT Solutions Software is a comprehensive solution designed to streamline
+        software operations with 15+ intelligent modules, covering everything
+        from software enrollment and software tracking to software management
+        and software reporting. It also features an integrated Auto SMS
+        Responder, ensuring seamless communication between stakeholders, admin,
+        and staff by sending instant updates, reminders, and notifications.
       </p>
 
       <hr className="home-hr" />

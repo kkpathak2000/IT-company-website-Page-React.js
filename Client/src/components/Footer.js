@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,9 @@ const Footer = () => {
       <p>&copy; {currentYear} IT Solutions Tech. All Rights Reserved.</p>
       <nav aria-label="Footer Navigation">
         <a href="#privacy">Privacy Policy</a>
-        <span className="mx-2" aria-hidden="true">|</span>
+        <span className="mx-2" aria-hidden="true">
+          |
+        </span>
         <a href="#terms">Terms of Service</a>
       </nav>
       <p className="footer-note">Trusted by IT teams and modern businesses.</p>
