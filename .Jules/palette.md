@@ -39,6 +39,10 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
+## 2026-05-23 - CLS Prevention and Visual Affordance
+**Learning:** Modifying layout-inducing properties like `height` on `:hover` in CSS causes layout jank (CLS) by shifting surrounding elements. Prioritizing non-layout properties like `transform: scale()` ensures visual stability. Additionally, adding redundant visual cues (like icons) to actionable links and buttons significantly improves visual affordance and navigation speed.
+**Action:** Use `transform` for interactive animations to avoid layout shifts. Pair primary actions and contact information with semantic icons to enhance discoverability.
+
 ## 2025-06-10 - Dark Theme Contrast and Skip Links
 **Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
 **Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
@@ -63,6 +67,6 @@
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
 
-## 2026-06-15 - Interactive Layout Stability and Keyboard Affordance
-**Learning:** Modifying layout-inducing properties like `height` on `:hover` causes Cumulative Layout Shift (CLS) that can be jarring for users. Using stable properties like `min-height` and focusing transitions on non-layout properties like `transform` ensures visual stability. Additionally, hover-only visual feedback (like scaling) excludes keyboard users; applying identical effects to `:focus-within` ensures all users receive consistent interactive affordance.
-**Action:** Avoid height transitions on hover to prevent CLS. Always mirror hover effects with `:focus-within` on interactive containers to support keyboard accessibility.
+## 2025-06-12 - Icon-Redundant Feedback and Descriptive ARIA Labels
+**Learning:** Visual icons (Mail, Map Pin, Phone) in contact sections provide immediate affordance but must be paired with descriptive `aria-label` attributes to resolve ambiguity for assistive technologies, especially when multiple links share similar visual weight. Using Bootstrap's `d-inline-flex` and `align-items-center` ensures these icons are perfectly aligned with text without custom CSS.
+**Action:** Always pair actionable contact links with semantic SVG icons and explicit `aria-label` values. Use utility-first alignment classes to maintain design system consistency.
