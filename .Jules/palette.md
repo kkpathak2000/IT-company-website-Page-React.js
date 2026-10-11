@@ -62,3 +62,7 @@
 ## 2026-05-22 - Dracula Theme Contrast and Icon-Redundant Feedback
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
+
+## 2025-06-12 - Icon-Redundant Feedback and Descriptive ARIA Labels
+**Learning:** Visual icons (Mail, Map Pin, Phone) in contact sections provide immediate affordance but must be paired with descriptive `aria-label` attributes to resolve ambiguity for assistive technologies, especially when multiple links share similar visual weight. Using Bootstrap's `d-inline-flex` and `align-items-center` ensures these icons are perfectly aligned with text without custom CSS.
+**Action:** Always pair actionable contact links with semantic SVG icons and explicit `aria-label` values. Use utility-first alignment classes to maintain design system consistency.
