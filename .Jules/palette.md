@@ -47,6 +47,10 @@
 **Learning:** Visual smooth scrolling via anchor links doesn't update the accessibility tree's focus point. Keyboard users remain at the source link while the view moves away. Programmatically moving focus to the target (using `tabIndex="-1"`) after the scroll event is crucial for a cohesive assistive technology experience. Additionally, using high-contrast colors like Dracula Cyan (#8BE9FD) for links against dark backgrounds ensures WCAG compliance and clear interactive affordance.
 **Action:** Always pair internal anchor navigation with programmatic `.focus()` calls to the target section. Use theme-consistent, high-contrast colors for links to maintain accessibility and brand identity.
 
+## 2026-07-04 - JSX SVG Attributes and Repository Hygiene
+**Learning:** When embedding inline SVGs in React (JSX), standard SVG attributes like `stroke-width` must be converted to camelCase (`strokeWidth`) to avoid DOM property warnings and potential rendering issues. Additionally, ensure all verification scripts and temporary artifacts are removed from the workspace prior to submission to maintain repository hygiene and avoid "junk file" flags in code reviews.
+**Action:** Always use camelCase for SVG attributes in JSX. Delete all `/home/jules/verification/` scripts and other non-source files before calling `submit`.
+
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
