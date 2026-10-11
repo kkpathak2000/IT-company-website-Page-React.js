@@ -376,7 +376,7 @@ body {
 
 .service-card:hover,
 .service-card:focus-within {
-  transform: scale(1.05);
+  transform: translateY(-10px) scale(1.05);
 }
 
 .card-image-container {
