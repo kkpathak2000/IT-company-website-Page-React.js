@@ -367,7 +367,6 @@ body {
   width: 300px;
   border-radius: 10px;
   overflow: hidden;
-  min-height: 350px;
   height: 350px;
   display: flex;
   flex-direction: column;
@@ -375,8 +374,9 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-.service-card:hover {
-  transform: scale(1.05);
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-10px) scale(1.05);
 }
 
 .card-image-container {
