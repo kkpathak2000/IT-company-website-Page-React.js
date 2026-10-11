@@ -1,3 +1,7 @@
+## 2026-07-07 - Cumulative Layout Shift and Focus Affordance
+**Learning:** Modifying layout-inducing properties like `height` on hover causes Cumulative Layout Shift (CLS), which is jarring and disrupts the user's reading flow. Using CSS `transform` (e.g., `translateY`, `scale`) provides similar visual feedback without affecting the document flow. Furthermore, visual hover effects must be mirrored for keyboard users using `:focus-within` or `:focus-visible` to ensure equal delight across all input methods.
+**Action:** Use `transform` instead of `height`, `margin`, or `padding` for hover/active animations. Always pair hover effects with focus-based selectors to maintain accessibility.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
@@ -46,6 +50,10 @@
 ## 2026-04-14 - Programmatic Focus and Contrast for Internal Navigation
 **Learning:** Visual smooth scrolling via anchor links doesn't update the accessibility tree's focus point. Keyboard users remain at the source link while the view moves away. Programmatically moving focus to the target (using `tabIndex="-1"`) after the scroll event is crucial for a cohesive assistive technology experience. Additionally, using high-contrast colors like Dracula Cyan (#8BE9FD) for links against dark backgrounds ensures WCAG compliance and clear interactive affordance.
 **Action:** Always pair internal anchor navigation with programmatic `.focus()` calls to the target section. Use theme-consistent, high-contrast colors for links to maintain accessibility and brand identity.
+
+## 2026-07-04 - JSX SVG Attributes and Repository Hygiene
+**Learning:** When embedding inline SVGs in React (JSX), standard SVG attributes like `stroke-width` must be converted to camelCase (`strokeWidth`) to avoid DOM property warnings and potential rendering issues. Additionally, ensure all verification scripts and temporary artifacts are removed from the workspace prior to submission to maintain repository hygiene and avoid "junk file" flags in code reviews.
+**Action:** Always use camelCase for SVG attributes in JSX. Delete all `/home/jules/verification/` scripts and other non-source files before calling `submit`.
 
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
