@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
+import { smoothScrollTo } from '../utils/smoothScroll';
 import cloudImage from '../assets/cloud.png';
 import supportImage from '../assets/it-support.png';
 import softwareImage from '../assets/software.png';
@@ -12,12 +13,7 @@ const services = [
 
 const Services = () => {
   const handleScroll = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-      targetElement.focus();
-    }
+    smoothScrollTo(e, targetId);
   };
 
   return (
@@ -51,7 +47,7 @@ const Services = () => {
           stakeholders, and staff.
         </p>
         <br />
-        <p>Ready to take your business to the next level? <a href="#contact" className="contact-link" onClick={(e) => handleScroll(e, '#contact')}>Contact us today!</a></p>
+        <p>Ready to take your business to the next level? <a href="#contact" onClick={(e) => handleScroll(e, '#contact')} aria-label="Contact us section">Contact us today!</a></p>
       </div>
     </section>
   );
