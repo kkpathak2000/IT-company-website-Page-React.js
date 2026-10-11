@@ -1,6 +1,6 @@
-## 2026-07-06 - Layout Shift and Focus Within
-**Learning:** Animating the `height` property on hover causes layout shifts (CLS) that can be jarring. Using `min-height` for a stable base and only animating `transform: scale()` provides a much smoother interaction. Additionally, using `:focus-within` on container elements ensures that keyboard users experience the same visual feedback as mouse users when interacting with nested focusable elements.
-**Action:** Prefer `min-height` and `transform` over `height` animations. Always pair `:hover` styles with `:focus-within` for accessible interactions.
+## 2026-07-07 - Cumulative Layout Shift and Focus Affordance
+**Learning:** Modifying layout-inducing properties like `height` on hover causes Cumulative Layout Shift (CLS), which is jarring and disrupts the user's reading flow. Using CSS `transform` (e.g., `translateY`, `scale`) provides similar visual feedback without affecting the document flow. Furthermore, visual hover effects must be mirrored for keyboard users using `:focus-within` or `:focus-visible` to ensure equal delight across all input methods.
+**Action:** Use `transform` instead of `height`, `margin`, or `padding` for hover/active animations. Always pair hover effects with focus-based selectors to maintain accessibility.
 
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
