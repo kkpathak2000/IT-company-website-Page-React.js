@@ -11,6 +11,7 @@ const Footer = () => {
         <span className="mx-2" aria-hidden="true">|</span>
         <a href="#terms">Terms of Service</a>
       </nav>
+      <p className="footer-note">Trusted by IT teams and modern businesses.</p>
     </footer>
   );
 };

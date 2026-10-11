@@ -375,14 +375,8 @@ body {
 }
 
 .service-card:hover,
-.service-card:focus-within,
-.service-card:focus-visible {
-  transform: scale(1.05) translateY(-10px);
-  outline: none;
-}
-
-.service-card:focus-visible {
-  box-shadow: 0 0 0 3px #8BE9FD;
+.service-card:focus-within {
+  transform: translateY(-10px) scale(1.05);
 }
 
 .card-image-container {
