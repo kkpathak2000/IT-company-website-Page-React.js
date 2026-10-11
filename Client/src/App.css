@@ -9,15 +9,17 @@ html {
 }
 
 .app {
-  background-color: #1e1e2e;
+  background-color: #1E1E2E;
 }
 
 body {
-  background-color: #1e1e2e;
-  color: #f8f8f2;
+  background-color: #1E1E2E;
+  color: #F8F8F2;
   margin: 0;
   padding: 0;
 }
+
+
 
 .navbar-dark .navbar-nav .nav-link {
   color: #ffffff;
@@ -29,14 +31,14 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ff79c6;
+  background-color: #FF79C6;
   transform-origin: bottom right;
   transition: transform 0.3s ease-in-out;
 }
@@ -44,12 +46,12 @@ body {
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus,
 .navbar-dark .navbar-nav .nav-link:focus-visible {
-  color: #ff79c6;
+  color: #FF79C6;
 }
 
 .navbar-dark .navbar-nav .nav-link:focus-visible,
 .navbar-brand:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -62,23 +64,23 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #ff79c6;
+  color: #FF79C6;
 }
 
 .navbar-dark .navbar-nav .nav-link.active::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   transform: scaleX(1);
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #ff79c6;
+  background-color: #FF79C6;
   transform-origin: bottom left;
 }
 
 .navbar-brand:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -87,7 +89,7 @@ body {
 
 .home-section {
   text-align: center;
-  background-color: #1e1e2e;
+  background-color: #1E1E2E;
   color: white;
   padding-bottom: 40px;
 }
@@ -204,7 +206,7 @@ body {
 }
 
 .contact-info a {
-  color: #8be9fd;
+  color: #8BE9FD;
   text-decoration: none;
 }
 
@@ -213,7 +215,7 @@ body {
 }
 
 .contact-info a:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -221,7 +223,7 @@ body {
 .contact-overlay .separator {
   width: 2px;
   height: 150px;
-  background-color: #8be9fd;
+  background-color: #8BE9FD;
   margin: 0 30px;
 }
 
@@ -234,35 +236,32 @@ body {
 
 .contact-form input,
 .contact-form textarea {
-  border: 1px solid #ff79c6;
+  border: 1px solid #FF79C6;
   color: #000;
   background-color: #fff;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #8be9fd;
+  border-color: #8BE9FD;
   box-shadow: 0 0 0 0.2rem rgba(139, 233, 253, 0.25);
   outline: none;
 }
 
 .contact-form input:focus-visible,
 .contact-form textarea:focus-visible {
-  border-color: #8be9fd;
+  border-color: #8BE9FD;
   box-shadow: 0 0 0 0.2rem rgba(139, 233, 253, 0.5);
   outline: none;
 }
 
 .contact-form .btn {
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.2s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-form .btn:hover {
-  background-color: #d0257f;
-  border-color: #d0257f;
+  background-color: #D0257F;
+  border-color: #D0257F;
   color: #fff;
 }
 
@@ -279,18 +278,18 @@ body {
 }
 
 .contact-link {
-  color: #8be9fd;
+  color: #8BE9FD;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .contact-link:hover {
-  color: #8be9fd;
+  color: #8BE9FD;
   text-decoration: underline;
 }
 
 .contact-link:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -301,7 +300,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #282a36;
+  background-color: #282A36;
   padding: 1rem;
   gap: 20px;
   color: #ffffff;
@@ -325,13 +324,13 @@ body {
 }
 
 .footer a:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 2px;
 }
 
 .separator {
-  color: #8be9fd;
+  color: #8BE9FD;
 }
 
 /* CSS for SERVICES PAGE */
@@ -368,15 +367,16 @@ body {
   width: 300px;
   border-radius: 10px;
   overflow: hidden;
-  min-height: 350px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease-in-out;
 }
 
-.service-card:hover {
-  transform: scale(1.05);
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-10px) scale(1.05);
 }
 
 .card-image-container {
@@ -409,7 +409,7 @@ body {
 }
 
 .services-footer a {
-  color: #8be9fd;
+  color: #8BE9FD;
   text-decoration: none;
   font-weight: bold;
 }
@@ -419,7 +419,7 @@ body {
 }
 
 .services-footer a:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -433,18 +433,18 @@ body {
 
 .success {
   background-color: rgba(80, 250, 123, 0.1);
-  color: #50fa7b;
-  border: 1px solid #50fa7b;
+  color: #50FA7B;
+  border: 1px solid #50FA7B;
 }
 
 .error {
   background-color: rgba(255, 85, 85, 0.1);
-  color: #ff5555;
-  border: 1px solid #ff5555;
+  color: #FF5555;
+  border: 1px solid #FF5555;
 }
 
 .text-warning {
-  color: #f1fa8c !important;
+  color: #F1FA8C !important;
 }
 
 .visually-hidden-focusable:not(:focus):not(:focus-within) {
@@ -465,10 +465,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: 2000;
-  background-color: #282a36;
-  color: #8be9fd;
+  background-color: #282A36;
+  color: #8BE9FD;
   padding: 8px 16px;
-  border: 2px solid #8be9fd;
+  border: 2px solid #8BE9FD;
   border-radius: 4px;
   text-decoration: none;
   font-weight: bold;
@@ -494,20 +494,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff79c6;
+  background-color: #FF79C6;
   border: none;
-  transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .back-to-top:hover {
-  background-color: #bd93f9;
+  background-color: #BD93F9;
   transform: scale(1.1);
 }
 
 .back-to-top:focus-visible {
-  outline: 2px solid #8be9fd;
+  outline: 2px solid #8BE9FD;
   outline-offset: 4px;
 }
 

@@ -13,6 +13,7 @@ const Footer = () => {
         </span>
         <a href="#terms">Terms of Service</a>
       </nav>
+      <p className="footer-note">Trusted by IT teams and modern businesses.</p>
     </footer>
   );
 };
