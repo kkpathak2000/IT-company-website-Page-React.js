@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import { smoothScrollTo } from '../utils/smoothScroll';
 import logo from '../assets/logo.png';
 
 const debounce = (func, delay) => {
@@ -15,13 +16,8 @@ const CustomNavbar = () => {
   const navbarRef = useRef(null);
 
   const handleScroll = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-      targetElement.focus();
-      setActiveLink(targetId);
-    }
+    smoothScrollTo(e, targetId);
+    setActiveLink(targetId);
   };
 
   useEffect(() => {
