@@ -371,14 +371,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .service-card:hover,
 .service-card:focus-within {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-  outline: none;
+  transform: translateY(-10px) scale(1.05);
 }
 
 .card-image-container {
