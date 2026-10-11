@@ -1,6 +1,7 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import Contact from './Contact';
 import React from 'react';
+import axios from 'axios';
 
 // Mock axios to avoid ESM issues and network calls
 jest.mock('axios', () => ({
@@ -68,5 +69,39 @@ describe('Contact Component', () => {
     const phoneLink = screen.getByLabelText(/Call us at \+91-9876543210/i);
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
     expect(phoneLink).toHaveClass('contact-link');
+  });
+
+  test('disables inputs during async submission', async () => {
+    let resolveAxios;
+    axios.post.mockImplementationOnce(() => new Promise((resolve) => {
+      resolveAxios = resolve;
+    }));
+
+    render(<Contact />);
+
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
+    const submitButton = screen.getByRole('button', { name: /Send Message/i });
+
+    expect(nameInput).not.toBeDisabled();
+    expect(emailInput).not.toBeDisabled();
+    expect(messageInput).not.toBeDisabled();
+
+    fireEvent.change(nameInput, { target: { value: 'Jane Doe' } });
+    fireEvent.change(emailInput, { target: { value: 'jane@example.com' } });
+    fireEvent.change(messageInput, { target: { value: 'Test message' } });
+
+    fireEvent.click(submitButton);
+
+    expect(nameInput).toBeDisabled();
+    expect(emailInput).toBeDisabled();
+    expect(messageInput).toBeDisabled();
+
+    await act(async () => {
+      resolveAxios({ data: {} });
+    });
+
+    expect(nameInput).not.toBeDisabled();
   });
 });
