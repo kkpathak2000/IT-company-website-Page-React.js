@@ -1,6 +1,14 @@
+## 2026-07-07 - Cumulative Layout Shift and Focus Affordance
+**Learning:** Modifying layout-inducing properties like `height` on hover causes Cumulative Layout Shift (CLS), which is jarring and disrupts the user's reading flow. Using CSS `transform` (e.g., `translateY`, `scale`) provides similar visual feedback without affecting the document flow. Furthermore, visual hover effects must be mirrored for keyboard users using `:focus-within` or `:focus-visible` to ensure equal delight across all input methods.
+**Action:** Use `transform` instead of `height`, `margin`, or `padding` for hover/active animations. Always pair hover effects with focus-based selectors to maintain accessibility.
+
 ## 2026-04-12 - Actionable Contact Information and Selector Precision
 **Learning:** Static text for contact details (Address, Phone) on landing pages is a missed opportunity for user delight. Converting these to actionable links (`tel:`, Google Maps) significantly reduces friction, especially on mobile. Additionally, when tests fail due to multiple elements matching a label (e.g., a link and an input both labeled "Email"), using `screen.getByRole` with a specific role and accessible name provides the necessary precision to resolve ambiguity.
 **Action:** Always wrap static contact info in actionable protocols. Use specific ARIA roles in tests to distinguish between elements with overlapping labels.
+
+## 2026-06-30 - Visual Affordance for Contact Information
+**Learning:** While `aria-label` ensures screen reader accessibility, sighted users benefit from visual icons that quickly categorize information (e.g., mail icon for email). Combining these icons with high-contrast, theme-consistent colors (Dracula Cyan #8BE9FD) and proper vertical alignment creates a professional and intuitive contact section.
+**Action:** Use Feather-style inline SVGs with `aria-hidden="true"` alongside descriptive `aria-label` attributes on links. Apply `d-flex` and `align-items-center` for consistent layout.
 
 ## 2025-06-06 - Focus Visibility and Active Navigation
 **Learning:** Suppressing default browser focus outlines (e.g., `outline: none`) without a custom alternative breaks keyboard accessibility. Using a theme-consistent `box-shadow` provides a clear focus indicator that satisfies accessibility requirements while maintaining design aesthetics.
@@ -31,6 +39,10 @@
 **Learning:** Malformed JSX in core components like Footer can crash the entire test suite. Beyond syntax, footer navigation should use explicit `aria-label` on `<nav>` and hide decorative separators (like "|") using `aria-hidden="true"` to prevent screen readers from reading them as characters.
 **Action:** Ensure all navigation landmarks have unique labels and decorative elements are programmatically hidden.
 
+## 2026-05-23 - CLS Prevention and Visual Affordance
+**Learning:** Modifying layout-inducing properties like `height` on `:hover` in CSS causes layout jank (CLS) by shifting surrounding elements. Prioritizing non-layout properties like `transform: scale()` ensures visual stability. Additionally, adding redundant visual cues (like icons) to actionable links and buttons significantly improves visual affordance and navigation speed.
+**Action:** Use `transform` for interactive animations to avoid layout shifts. Pair primary actions and contact information with semantic icons to enhance discoverability.
+
 ## 2025-06-10 - Dark Theme Contrast and Skip Links
 **Learning:** Default Bootstrap utility classes like `text-muted` often fail WCAG contrast standards on dark-themed backgrounds (e.g., #1E1E2E). Switching to `text-info` or other brand-consistent high-contrast colors is necessary for accessibility. Additionally, a "Skip to main content" link is essential for keyboard navigation on pages with fixed navigation bars.
 **Action:** Always verify contrast of helper text and counters against dark backgrounds. Ensure `main-content` landmarks are present and focusable (via `tabIndex="-1"`) for skip link targets.
@@ -43,6 +55,10 @@
 **Learning:** Visual smooth scrolling via anchor links doesn't update the accessibility tree's focus point. Keyboard users remain at the source link while the view moves away. Programmatically moving focus to the target (using `tabIndex="-1"`) after the scroll event is crucial for a cohesive assistive technology experience. Additionally, using high-contrast colors like Dracula Cyan (#8BE9FD) for links against dark backgrounds ensures WCAG compliance and clear interactive affordance.
 **Action:** Always pair internal anchor navigation with programmatic `.focus()` calls to the target section. Use theme-consistent, high-contrast colors for links to maintain accessibility and brand identity.
 
+## 2026-07-04 - JSX SVG Attributes and Repository Hygiene
+**Learning:** When embedding inline SVGs in React (JSX), standard SVG attributes like `stroke-width` must be converted to camelCase (`strokeWidth`) to avoid DOM property warnings and potential rendering issues. Additionally, ensure all verification scripts and temporary artifacts are removed from the workspace prior to submission to maintain repository hygiene and avoid "junk file" flags in code reviews.
+**Action:** Always use camelCase for SVG attributes in JSX. Delete all `/home/jules/verification/` scripts and other non-source files before calling `submit`.
+
 ## 2026-04-11 - CSS Consolidation and Maintenance
 **Learning:** Redundant and conflicting CSS declarations for a single component (like 5+ definitions for `.skip-link`) lead to unpredictable behavior due to CSS specificity conflicts. Consolidating these into a single, themed implementation improves both maintainability and accessibility reliability.
 **Action:** Audit CSS files for redundant class definitions. Prioritize a single, robust source of truth for accessibility features over scattered, partial overrides.
@@ -51,6 +67,6 @@
 **Learning:** Standard Bootstrap "muted" and alert classes often fail WCAG contrast ratios on dark backgrounds like Dracula (#1E1E2E). Success/Error messages require custom hex-code overrides (e.g., #50FA7B, #FF5555) to be legible. Furthermore, status messages should always include an icon as a redundant visual cue to support colorblind users who may not distinguish green/red against a dark canvas.
 **Action:** Override Bootstrap alert/muted classes with theme-compliant high-contrast colors. Always pair status messages with semantic icons (e.g., check-circle for success).
 
-## 2025-06-12 - Layout Stability and Interaction Parity
-**Learning:** Modifying layout-inducing properties like `height` on `:hover` in CSS causes layout jank (Cumulative Layout Shift) as surrounding elements shift to accommodate the new size. Additionally, interactive effects (like scaling) limited only to `:hover` exclude keyboard users.
-**Action:** Prioritize non-layout properties like `transform: scale()` for animations. Always include `:focus-within` or `:focus-visible` alongside `:hover` to ensure visual affordance parity for keyboard navigation.
+## 2025-06-12 - Icon-Redundant Feedback and Descriptive ARIA Labels
+**Learning:** Visual icons (Mail, Map Pin, Phone) in contact sections provide immediate affordance but must be paired with descriptive `aria-label` attributes to resolve ambiguity for assistive technologies, especially when multiple links share similar visual weight. Using Bootstrap's `d-inline-flex` and `align-items-center` ensures these icons are perfectly aligned with text without custom CSS.
+**Action:** Always pair actionable contact links with semantic SVG icons and explicit `aria-label` values. Use utility-first alignment classes to maintain design system consistency.
