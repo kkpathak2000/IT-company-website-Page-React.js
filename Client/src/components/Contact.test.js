@@ -56,17 +56,20 @@ describe('Contact Component', () => {
   test('renders actionable links for email, address, and phone', () => {
     render(<Contact />);
 
-    const emailLink = screen.getByLabelText(/Email us at itsolutions@gmail.com/i);
+    const emailLink = screen.getByRole('link', { name: /itsolutions@gmail.com/i });
     expect(emailLink).toHaveAttribute('href', 'mailto:itsolutions@gmail.com');
+    expect(emailLink).toHaveAttribute('title', 'Email us at itsolutions@gmail.com');
     expect(emailLink).toHaveClass('contact-link');
 
-    const addressLink = screen.getByLabelText(/Find us on Google Maps at ABC Street, Lucknow/i);
+    const addressLink = screen.getByRole('link', { name: /ABC Street, Lucknow/i });
     expect(addressLink).toHaveAttribute('href', expect.stringContaining('google.com/maps'));
+    expect(addressLink).toHaveAttribute('title', 'Find us on Google Maps at ABC Street, Lucknow');
     expect(addressLink).toHaveAttribute('target', '_blank');
     expect(addressLink).toHaveClass('contact-link');
 
-    const phoneLink = screen.getByLabelText(/Call us at \+91-9876543210/i);
+    const phoneLink = screen.getByRole('link', { name: /\+91-9876543210/i });
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
+    expect(phoneLink).toHaveAttribute('title', 'Call us at +91-9876543210');
     expect(phoneLink).toHaveClass('contact-link');
   });
 });
