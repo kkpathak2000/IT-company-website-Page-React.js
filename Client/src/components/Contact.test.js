@@ -53,6 +53,29 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
+  test('disables inputs during form submission', async () => {
+    const axios = require('axios');
+    let resolvePromise;
+    axios.post.mockImplementationOnce(() => new Promise((resolve) => {
+      resolvePromise = resolve;
+    }));
+
+    render(<Contact />);
+    fireEvent.change(screen.getByRole('textbox', { name: /Name/i }), { target: { value: 'John Doe' } });
+    fireEvent.change(screen.getByRole('textbox', { name: /^Email/i }), { target: { value: 'john@example.com' } });
+    fireEvent.change(screen.getByRole('textbox', { name: /Message/i }), { target: { value: 'Hello' } });
+
+    fireEvent.click(screen.getByRole('button', { name: /Send Message/i }));
+
+    expect(screen.getByRole('textbox', { name: /Name/i })).toBeDisabled();
+    expect(screen.getByRole('textbox', { name: /^Email/i })).toBeDisabled();
+    expect(screen.getByRole('textbox', { name: /Message/i })).toBeDisabled();
+
+    await React.act(async () => {
+      resolvePromise({ data: {} });
+    });
+  });
+
   test('renders actionable links for email, address, and phone', () => {
     render(<Contact />);
 
