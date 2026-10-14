@@ -69,4 +69,34 @@ describe('Contact Component', () => {
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
     expect(phoneLink).toHaveClass('contact-link');
   });
+
+  test('disables inputs and button when form is loading', async () => {
+    let resolvePost;
+    const axios = require('axios');
+    axios.post.mockImplementationOnce(() => new Promise((resolve) => {
+      resolvePost = resolve;
+    }));
+
+    render(<Contact />);
+
+    fireEvent.change(screen.getByRole('textbox', { name: /Name/i }), { target: { value: 'John Doe' } });
+    fireEvent.change(screen.getByRole('textbox', { name: /^Email/i }), { target: { value: 'john@example.com' } });
+    fireEvent.change(screen.getByRole('textbox', { name: /Message/i }), { target: { value: 'Hello world' } });
+
+    fireEvent.click(screen.getByRole('button', { name: /Send Message/i }));
+
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
+    const submitButton = screen.getByRole('button');
+
+    expect(nameInput).toBeDisabled();
+    expect(emailInput).toBeDisabled();
+    expect(messageInput).toBeDisabled();
+    expect(submitButton).toBeDisabled();
+
+    await React.act(async () => {
+      resolvePost({ data: {} });
+    });
+  });
 });
