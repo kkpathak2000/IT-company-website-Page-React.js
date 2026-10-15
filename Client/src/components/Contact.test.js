@@ -69,4 +69,36 @@ describe('Contact Component', () => {
     expect(phoneLink).toHaveAttribute('href', 'tel:+919876543210');
     expect(phoneLink).toHaveClass('contact-link');
   });
+
+  test('disables input fields while form is submitting', async () => {
+    let resolvePost;
+    const axios = require('axios');
+    axios.post.mockImplementationOnce(() => new Promise((resolve) => {
+      resolvePost = resolve;
+    }));
+
+    render(<Contact />);
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
+
+    fireEvent.change(nameInput, { target: { value: 'John Doe' } });
+    fireEvent.change(emailInput, { target: { value: 'john@example.com' } });
+    fireEvent.change(messageInput, { target: { value: 'Hello world' } });
+
+    const submitBtn = screen.getByRole('button', { name: /Send Message/i });
+    fireEvent.click(submitBtn);
+
+    expect(nameInput).toBeDisabled();
+    expect(emailInput).toBeDisabled();
+    expect(messageInput).toBeDisabled();
+
+    await React.act(async () => {
+      resolvePost({ data: {} });
+    });
+
+    expect(nameInput).not.toBeDisabled();
+    expect(emailInput).not.toBeDisabled();
+    expect(messageInput).not.toBeDisabled();
+  });
 });
