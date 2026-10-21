@@ -69,14 +69,14 @@ const Contact = () => {
           <Form id="form" className="contact-form" onSubmit={handleSend} aria-busy={isLoading} tabIndex="-1">
             <FormGroup>
               <Label for="name">Name <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" />
+              <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required aria-required="true" maxLength={100} autoComplete="name" aria-describedby="name-counter" disabled={isLoading} />
               <div id="name-counter" className={getCounterClass(formData.name.length, 100)} aria-live="polite">
                 {formData.name.length}/100
               </div>
             </FormGroup>
             <FormGroup>
               <Label for="email">Email <span className="text-danger" aria-hidden="true">*</span></Label>
-              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" aria-describedby="email-counter" />
+              <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required aria-required="true" maxLength={100} autoComplete="email" aria-describedby="email-counter" disabled={isLoading} />
               <div id="email-counter" className={getCounterClass(formData.email.length, 100)} aria-live="polite">
                 {formData.email.length}/100
               </div>
@@ -94,6 +94,7 @@ const Contact = () => {
                 aria-required="true"
                 maxLength={500}
                 aria-describedby="message-counter"
+                disabled={isLoading}
               />
               <div id="message-counter" className={getCounterClass(formData.message.length, 500)} aria-live="polite">
                 {formData.message.length}/500
