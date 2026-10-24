@@ -53,6 +53,40 @@ describe('Contact Component', () => {
     expect(screen.getByText('0/500', { selector: '#message-counter' })).toHaveAttribute('aria-live', 'polite');
   });
 
+  test('disables inputs and submit button during form submission', async () => {
+    let resolvePromise;
+    const axios = require('axios');
+    axios.post.mockImplementationOnce(() => new Promise((resolve) => {
+      resolvePromise = resolve;
+    }));
+
+    render(<Contact />);
+
+    const nameInput = screen.getByRole('textbox', { name: /Name/i });
+    const emailInput = screen.getByRole('textbox', { name: /^Email/i });
+    const messageInput = screen.getByRole('textbox', { name: /Message/i });
+    const submitButton = screen.getByRole('button', { name: /Send Message/i });
+
+    fireEvent.change(nameInput, { target: { value: 'John Doe' } });
+    fireEvent.change(emailInput, { target: { value: 'john@example.com' } });
+    fireEvent.change(messageInput, { target: { value: 'Hello' } });
+
+    fireEvent.click(submitButton);
+
+    expect(nameInput).toBeDisabled();
+    expect(emailInput).toBeDisabled();
+    expect(messageInput).toBeDisabled();
+    expect(submitButton).toBeDisabled();
+
+    await React.act(async () => {
+      resolvePromise({ data: { message: 'Success' } });
+    });
+
+    expect(nameInput).not.toBeDisabled();
+    expect(emailInput).not.toBeDisabled();
+    expect(messageInput).not.toBeDisabled();
+  });
+
   test('renders actionable links for email, address, and phone', () => {
     render(<Contact />);
 
